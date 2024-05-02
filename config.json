@@ -2,5 +2,11 @@
     "title":"wpliNote",
     "subTitle":"没事记一记。",
     "avatarUrl":"https://alist.3u3.tech/d/img/%E5%A4%B4%E5%83%8F/diego-ph-cEAm7FvwgSM-unsplash.jpg?sign=H1rRLpGws-tYAJ_Dq0qg1ivNAWkaAIbS8di_NTR2xPA=:0",
-    "GMEEK_VERSION":"last"
+    "GMEEK_VERSION":"last",
+    "displayTitle":"WenNan",
+    "homeUrl":"http://note.wrb.me",
+    "startSite":"05/02/2024",
+    "onePageListNum":150,
+    "style":"<style>#postBody{font-size:20px}</style>",
+    "script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>",
 }
