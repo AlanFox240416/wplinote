@@ -65,7 +65,56 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><p>11</p></div>
+<div class="markdown-body" id="postBody"><h1>复现过程</h1>
+<ol>
+<li>在Github创建名为“<strong>AlanFox240416.github.io</strong>”的仓库。</li>
+<li>添加自定义域名</li>
+</ol>
+<ul>
+<li>
+<p>需要在先在<a href="https://github.com/settings/pages">Github账户的Pages页面</a>验证域名。</p>
+<details>
+<summary><b>点击添加域名，将TXT记录添加都CF</b></summary>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/cf5ff34f-0877-44be-8bbe-7c74b32dceb6"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/cf5ff34f-0877-44be-8bbe-7c74b32dceb6" alt="image" style="max-width: 100%;"></a></p>
+</details>
+</li>
+<li>
+<p>项目的Pages页面，添加自定义域名</p>
+<details>
+<summary><b>输入自定义域名，在CF添加CNAME记录</b></summary>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/fda6af81-37d6-4f03-9ab6-a11305a0300e"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/fda6af81-37d6-4f03-9ab6-a11305a0300e" alt="image" style="max-width: 100%;"></a></p>
+</details>
+<details>
+<summary><b>添加CNAME记录的模板，注意Target (required)的值</b></summary>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/268a1b15-ec35-4c00-beae-4597afb2be7f"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/268a1b15-ec35-4c00-beae-4597afb2be7f" alt="image" style="max-width: 100%;"></a></p>
+</details>
+</li>
+</ul>
+<h1>出现的问题</h1>
+<ol>
+<li>actions别的仓库自动分配的域名会变成<strong>note.example.cc/仓库名</strong></li>
+</ol>
+<h1>原因</h1>
+<ul>
+<li>存在名为<strong>AlanFox240416.github.io</strong>的GitHub仓库</li>
+</ul>
+<h1>解决方法</h1>
+<ul>
+<li>
+<p>将名为<strong>AlanFox240416.github.io</strong>的仓库重命名为“任意名”，比如“wplinote”</p>
+<details>
+<summary><b>先修改红圈中的仓库名，再点击Rename</b></summary>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/255c6747-281b-4b29-854d-d8ef05485687"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/255c6747-281b-4b29-854d-d8ef05485687" alt="image" style="max-width: 100%;"></a></p>
+</details>
+</li>
+<li>
+<p>重新运行工作流程workflow（手动）</p>
+<details>
+<summary><b>Actions-&gt;build xxx-&gt;Run workflow-&gt;绿色按钮</b></summary>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/913165de-28b0-4faf-88e0-2c20b491d2ef"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/913165de-28b0-4faf-88e0-2c20b491d2ef" alt="image" style="max-width: 100%;"></a></p>
+</details>
+</li>
+</ul></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
