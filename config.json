@@ -1,6 +1,6 @@
 {
-    "title":"wpliNote",
-    "subTitle":"没事记一记。",
+    "title":"wpli Note",
+    "subTitle":"当生活的细节在记忆中轻轻划过，就如同细水长流，悄无声息地铭刻在心间。",
     "avatarUrl":"https://alist.3u3.tech/d/img/%E5%A4%B4%E5%83%8F/diego-ph-cEAm7FvwgSM-unsplash.jpg?sign=H1rRLpGws-tYAJ_Dq0qg1ivNAWkaAIbS8di_NTR2xPA=:0",
     "GMEEK_VERSION":"last",
     "displayTitle":"WenNan",
@@ -8,5 +8,20 @@
     "startSite":"05/02/2024",
     "onePageListNum":150,
     "style":"<style>#postBody{font-size:20px}</style>",
-    "script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>"
+    "script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>",
+    "iconList":{"music":"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"},
+    "exlink":{"music":"https://music.meekdai.com"},
+    "commentLabelColor":"#006b75",
+    "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
+    "i18n":"CN",
+    "UTC":8,
+    "themeMode":"manual",
+    "dayTheme":"light",
+    "nightTheme":"dark_colorblind",
+    "urlMode":"pinyin",
+    "style":"",
+    "script":"",
+    "showPostSource":1,
+    "rssSplit":"sentence",
+    "bottomText":"转载请注明出处"
 }
