@@ -1,6 +1,6 @@
-# Blog Title :link: https://AlanFox240416.github.io 
-### :page_facing_up: [0](https://AlanFox240416.github.io/tag.html) 
+# wpliNote :link: http://note.wrb.me 
+### :page_facing_up: [0](http://note.wrb.me/tag.html) 
 ### :speech_balloon: 0 
 ### :hibiscus: 0 
-### :alarm_clock: 2024-05-02 19:49:13 
+### :alarm_clock: 2024-05-02 20:25:27 
 ### Powered by :heart: [Gmeek](https://github.com/Meekdai/Gmeek)
