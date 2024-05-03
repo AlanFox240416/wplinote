@@ -29,7 +29,9 @@
 ## 命令键`/`
 <details><summary>输入/，加载框如隐藏内容所示，这些命令大大提升文章的可读性</summary>
 <p>
+
 ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/212a3e96-b3b0-44c2-a30b-9d10dd68f4c4)
+
 </p>
 </details> 
 
