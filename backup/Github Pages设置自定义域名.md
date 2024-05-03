@@ -1,4 +1,5 @@
-### 复现过程
+## Github Pages设置自定义域名+仓库名是个坑
+## 一、复现过程
 
 1. 在Github创建名为“**AlanFox240416.github.io**”的仓库。
 2. 添加自定义域名
@@ -24,16 +25,16 @@
   
   </details>
 
-### 出现的问题
+## 二、bug
 
 1. actions别的仓库自动分配的域名会变成**note.example.cc/仓库名**
 
 
-### 原因
+## 三、原因
 
 - 存在名为**AlanFox240416.github.io**的GitHub仓库
 
-### 解决方法
+## 四、解决方法
 
 - 将名为**AlanFox240416.github.io**的仓库重命名为“任意名”，比如“wplinote”
   <details>
@@ -50,8 +51,4 @@
   ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/913165de-28b0-4faf-88e0-2c20b491d2ef)
   
   </details>
-
-
-
-
 
