@@ -6,5 +6,5 @@
 ### Powered by :heart: [Gmeek](https://github.com/Meekdai/Gmeek)
 
 ## 小记
-"style":"<style>#postBody{font-size:20px}</style>",  # 这里18大小比较合适
-"script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>"  # 这行加到配置文件里会导致标签没有颜色
+1. "style":"<style>#postBody{font-size:20px}</style>",  # 这里18大小比较合适
+2. "script":"<script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>"  # 这行加到配置文件里会导致标签没有颜色
