@@ -1,4 +1,4 @@
-# 复现过程
+### 复现过程
 
 1. 在Github创建名为“**AlanFox240416.github.io**”的仓库。
 2. 添加自定义域名
@@ -24,16 +24,16 @@
   
   </details>
 
-# 出现的问题
+### 出现的问题
 
 1. actions别的仓库自动分配的域名会变成**note.example.cc/仓库名**
 
 
-# 原因
+### 原因
 
 - 存在名为**AlanFox240416.github.io**的GitHub仓库
 
-# 解决方法
+### 解决方法
 
 - 将名为**AlanFox240416.github.io**的仓库重命名为“任意名”，比如“wplinote”
   <details>
