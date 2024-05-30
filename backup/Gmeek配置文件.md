@@ -1,4 +1,21 @@
 ## 详细的配置文件见[Gmeek快速上手](https://blog.meekdai.com/post/Gmeek-kuai-su-shang-shou.html)，下面是一些补充说明。
+## tips
+问题：
+
+1. 修改配置文件config.json无效；
+2. 或者Action自动部署报错。
+
+解决方法：**手动**部署一遍。
+
+<details><summary>如图所示，点击Action-bulid Gmeek-Run workflows</summary>
+<p>
+
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/e4d6ec5f-69ea-493a-bd25-c415c6d03243)
+
+</p>
+</details> 
+
+
 ## style
 
 - postBody的字体大小设置，默认是20，我改为18
