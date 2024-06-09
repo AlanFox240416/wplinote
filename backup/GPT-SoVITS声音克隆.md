@@ -20,10 +20,34 @@
 </p>
 </details> 
 设置好后，点击Process Progress，进行人声提取。
-报错：An Error Occurred: ZeroDivisionError
-解决
+
+如果有报错：An Error Occurred: **ZeroDivisionError**
+原因：输入的多个音频中有几个**音频的时长太短**。
 
 ### 去混响
 将提取的人声再输入去混响
+<details><summary>选择提取的人声作为输入音频、选择输出文件夹路径、处理算法改为VR Architecture、模型改为UVR-De-Echo-Normal（轻度混响）、取消勾选Vocals Only，其他保持不变。
+</summary>
+<p>
 
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/17d39155-2ec4-47d8-9a73-296856628b46)
+
+</p>
+</details> 
+设置好后，点击Process Progress，进行去混响。
+
+注意：去混响时，处理1个音频，会输出2个音频。一个是Echo（混响），一个是No Echo（没有混响）。
+
+### 降躁
+<details><summary>选择No Echo的音频作为输入音频、选择输出文件夹路径、模型改为UVR-DeNoise，其他保持不变。
+</summary>
+<p>
+
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/9f4870f8-7940-4cfd-91f0-5b8026f86bc7)
+
+</p>
+</details> 
+设置好后，点击Process Progress，进行降噪。
+
+降噪，处理1个音频，也会输出2个音频。一个是Noise（噪音），一个是No Echo（没有噪音）。
 

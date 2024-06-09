@@ -98,10 +98,27 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p></p>
 </details> 
 设置好后，点击Process Progress，进行人声提取。
-报错：An Error Occurred: ZeroDivisionError
-解决
+<p>如果有报错：An Error Occurred: <strong>ZeroDivisionError</strong><br>
+原因：输入的多个音频中有几个<strong>音频的时长太短</strong>。</p>
 <h3>去混响</h3>
-<p>将提取的人声再输入去混响</p></div>
+<p>将提取的人声再输入去混响</p>
+<details><summary>选择提取的人声作为输入音频、选择输出文件夹路径、处理算法改为VR Architecture、模型改为UVR-De-Echo-Normal（轻度混响）、取消勾选Vocals Only，其他保持不变。
+</summary>
+<p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/17d39155-2ec4-47d8-9a73-296856628b46"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/17d39155-2ec4-47d8-9a73-296856628b46" alt="image" style="max-width: 100%;"></a></p>
+<p></p>
+</details> 
+设置好后，点击Process Progress，进行去混响。
+<p>注意：去混响时，处理1个音频，会输出2个音频。一个是Echo（混响），一个是No Echo（没有混响）。</p>
+<h3>降躁</h3>
+<details><summary>选择No Echo的音频作为输入音频、选择输出文件夹路径、模型改为UVR-DeNoise，其他保持不变。
+</summary>
+<p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/9f4870f8-7940-4cfd-91f0-5b8026f86bc7"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/9f4870f8-7940-4cfd-91f0-5b8026f86bc7" alt="image" style="max-width: 100%;"></a></p>
+<p></p>
+</details> 
+设置好后，点击Process Progress，进行降噪。
+<p>降噪，处理1个音频，也会输出2个音频。一个是Noise（噪音），一个是No Echo（没有噪音）。</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
