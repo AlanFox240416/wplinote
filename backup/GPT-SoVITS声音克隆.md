@@ -8,8 +8,7 @@
 > 更新：下载[main代码](https://github.com/RVC-Boss/GPT-SoVITS/archive/refs/heads/main.zip)，用GPT-SoVITS-main里的文件替换整合包中的文件；
 
 ## 2 人声伴奏分离
-有**背景音**的音频先进行人声伴奏分离
-下载[uvr5客户端](https://github.com/Anjok07/ultimatevocalremovergui/releases)，安装并运行。
+有**背景音**的音频先进行人声伴奏分离。下载[uvr5客户端](https://github.com/Anjok07/ultimatevocalremovergui/releases)，安装并运行。
 ### 2.1 提取人声
 <details><summary>在urv5操作界面中选择输入音频路径、输出文件夹路径、格式勾选wav、处理算法MDX-Net、模型Bs-Roformer-Viperx-1297、勾选GPU Conversion和Vocals Only，其他保持默认。设置好后，点击Process Progress，进行人声提取。
 </summary>
@@ -20,7 +19,7 @@
 </p>
 </details> 
 
-<details><summary>如果有报错：An Error Occurred: **ZeroDivisionError**</summary>
+<details><summary>如果有报错：An Error Occurred: ZeroDivisionError</summary>
 <p>
 
 原因：输入的多个音频中有几个**音频的时长太短。**
