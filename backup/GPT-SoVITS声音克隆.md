@@ -33,7 +33,7 @@
 
 ### 2.2 去混响
 将提取的人声再输入去混响
-<details><summary>选择提取的人声作为输入音频、选择输出文件夹路径、处理算法改为VR Architecture、模型改为UVR-De-Echo-Normal（轻度混响）、取消勾选Vocals Only，其他保持不变。
+<details><summary>选择提取的人声作为输入音频、选择输出文件夹路径、处理算法改为VR Architecture、模型改为UVR-De-Echo-Normal（轻度混响）、取消勾选Vocals Only，其他保持不变。设置好后，点击Process Progress，进行去混响。
 </summary>
 <p>
 
@@ -41,11 +41,10 @@
 
 </p>
 </details> 
-设置好后，点击Process Progress，进行去混响。
 
 注意：去混响时，处理1个音频，会输出2个音频。一个是Echo（混响），一个是No Echo（没有混响）。
 
-###2.3 降躁（对提取的人声比较干净可以跳过）
+### 2.3 降躁
 <details><summary>选择No Echo的音频作为输入音频、选择输出文件夹路径、模型改为UVR-DeNoise，其他保持不变。
 </summary>
 <p>
