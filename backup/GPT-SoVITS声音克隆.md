@@ -11,7 +11,7 @@
 有**背景音**的音频先进行人声伴奏分离
 下载[uvr5客户端](https://github.com/Anjok07/ultimatevocalremovergui/releases)，安装并运行。
 ### 提取人声
-<details><summary>在urv5操作界面中选择输入音频路径、输出文件夹路径、格式勾选wav、处理算法MDX-Net、模型Bs-Roformer-Viperx-1297、勾选GPU Conversion和Vocals Only，其他保持默认。
+<details><summary>在urv5操作界面中选择输入音频路径、输出文件夹路径、格式勾选wav、处理算法MDX-Net、模型Bs-Roformer-Viperx-1297、勾选GPU Conversion和Vocals Only，其他保持默认。设置好后，点击Process Progress，进行人声提取。
 </summary>
 <p>
 
@@ -19,10 +19,16 @@
 
 </p>
 </details> 
-设置好后，点击Process Progress，进行人声提取。
 
-如果有报错：An Error Occurred: **ZeroDivisionError**
+<details><summary>如果有报错：An Error Occurred: **ZeroDivisionError**</summary>
+<p>
+
 原因：输入的多个音频中有几个**音频的时长太短。**
+
+</p>
+</details> 
+
+
 **提取的人声比较干净就跳过接下来的去混响和降噪。**
 
 ### 去混响
