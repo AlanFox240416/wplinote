@@ -122,7 +122,16 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>降噪，处理1个音频，也会输出2个音频。一个是Noise（噪音），一个是No Echo（没有噪音）。</p>
 <h2>音频切割</h2>
 <p>使用GPT-SoVITS进行模型训练，输入的样本（音频）有长度限制，所以要进行音频切割，切分成短音频。</p>
-<h3>切割前预处理</h3></div>
+<h3>切割前预处理</h3>
+<p>使用Pr，选中音频，右键，点击音频增益。</p>
+<details><summary>音频增益，圈中的峰值振幅是最大音频的分贝，调整增益值使峰值在-9dB到-6dB之间。</summary>
+<p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/59e46378-73f8-413a-aad3-9c1ab8916b08"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/59e46378-73f8-413a-aad3-9c1ab8916b08" alt="image" style="max-width: 100%;"></a></p>
+<p></p>
+</details> 
+<h2>标注音频</h2>
+<h3>自动打标</h3>
+<h3>人工校对</h3></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
