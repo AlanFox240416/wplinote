@@ -121,7 +121,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 设置好后，点击Process Progress，进行降噪。
 <p>降噪，处理1个音频，也会输出2个音频。一个是Noise（噪音），一个是No Echo（没有噪音）。</p>
 <h2>3 音频切割</h2>
-<p>使用GPT-SoVITS进行模型训练，输入的样本（音频）有长度限制，所以要进行音频切割，切分成短音频。</p>
+<p>使用GPT-SoVITS进行模型训练，输入的样本（音频）有长度限制，因显存的大小不同而有所区别，所以要进行音频切割，切分成短音频。</p>
 <h3>3.1 切割前预处理</h3>
 <p>使用Pr，选中音频，右键，点击音频增益。</p>
 <details><summary>音频增益，圈中的峰值振幅是最大音频的分贝，调整增益值使峰值在-9dB到-6dB之间。</summary>
