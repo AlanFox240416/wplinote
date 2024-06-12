@@ -69,6 +69,9 @@
 </p>
 </details> 
 
+### 上传音频
+双击**GPT-SoVITS（使用）.ipynb**，然后打开workdir/GPT-SoVITS/input文件夹，上传原音频。
+
 ### 3.2 切割
 
 ## 4 标注音频
