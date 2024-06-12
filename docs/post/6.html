@@ -92,9 +92,14 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h2>1.2 yt-dlp安装</h2>
 <ol>
 <li>下载预编译包<a href="https://github.com/yt-dlp/yt-dlp/releases/download/2024.05.27/yt-dlp.exe">yt-dlp.exe</a></li>
-<li>编辑环境变量的Path，新建一条记录到存放yt-dlp.exe的文件夹。</li>
+<li>编辑环境变量的Path，新建一条记录到存放yt-dlp.exe的文件夹。（全局调用）</li>
 </ol>
 <h2>1.3 yt-dlp使用</h2>
+<p>使用yt-dlp默认下载到当前目录。直接打开到存放目录，在路径栏输入<code class="notranslate">cmd</code>，回车（在存放目录打开终端）。</p>
+<h3>1.3.1 下载视频</h3>
+<p><code class="notranslate">yt-dlp 网址</code></p>
+<h3>1.3.2 下载音频</h3>
+<p><code class="notranslate">yt-dlp -x --audio-format wav 网址</code></p>
 <h1>2 acghelper</h1>
 <ol>
 <li><a href="https://acghelper.com/" rel="nofollow">acghelper官网</a></li>

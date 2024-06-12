@@ -10,10 +10,16 @@
 ## 1.2 yt-dlp安装
 
 1. 下载预编译包[yt-dlp.exe](https://github.com/yt-dlp/yt-dlp/releases/download/2024.05.27/yt-dlp.exe)
-2. 编辑环境变量的Path，新建一条记录到存放yt-dlp.exe的文件夹。
+2. 编辑环境变量的Path，新建一条记录到存放yt-dlp.exe的文件夹。（全局调用）
 
 ## 1.3 yt-dlp使用
+使用yt-dlp默认下载到当前目录。直接打开到存放目录，在路径栏输入`cmd`，回车（在存放目录打开终端）。
 
+### 1.3.1 下载视频
+`yt-dlp 网址`
+
+### 1.3.2 下载音频
+`yt-dlp -x --audio-format wav 网址`
 
 # 2 acghelper
 
