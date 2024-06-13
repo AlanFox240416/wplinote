@@ -8,7 +8,7 @@
 > 更新：下载[main代码](https://github.com/RVC-Boss/GPT-SoVITS/archive/refs/heads/main.zip)，用GPT-SoVITS-main里的文件替换整合包中的文件；
 
 ## 2 人声伴奏分离
-这一步是在准备数据集，**不好的数据集练不出好模型！**
+这一步是在准备素材，**不好的素材练不出好模型！**，**不应低于2分钟**
 有**背景音**的音频先进行人声伴奏分离。下载[uvr5客户端](https://github.com/Anjok07/ultimatevocalremovergui/releases)，安装并运行。
 
 ### 2.1 提取人声
@@ -68,7 +68,7 @@
 </details> 
 
 ## 3 算力互联
-**云端训练，本地训练直接看4 音频切割**
+**云端训练，本地训练直接看“4 音频切割”**
 
 ### 3.1 创建实例
 <details><summary>点击社区镜像-圈中输入“GPT-SoVITS”，搜索到冷鸟鸟的镜像，点击进入创建实例界面。</summary>
@@ -95,26 +95,27 @@
 </p>
 </details> 
 
-
-## 4 音频切割
+## 4 音频切割（制作数据集）
 使用GPT-SoVITS进行模型训练，输入的样本（音频）的时长有限制（比如16G的显存不能超过16s），所以要进行音频切割，切分成短音频。
 
-### 4.1 切割前预处理
-使用Pr，选中音频，右键，点击音频增益。
-<details><summary>音频增益，圈中的峰值振幅是最大音频的分贝，调整增益值使峰值在-9dB到-6dB之间。</summary>
+### 4.1 上传音频
+双击**GPT-SoVITS（使用）.ipynb**，然后打开`/fssd/workdir/GPT-SoVITS/input`文件夹，上传原音频。
+
+### 4.2 启动Web-UI
+按照笔记本上的顺序先移动数据，再启动Web-UI。
+注意：Web-UI有两个URL，一个是`loads URL`，一个是`public URL`，选择公网链接`public URL`。
+
+### 4.2 切割
+切割，将上传的音频（素材）划分为短音频（数据集）。
+<details><summary>保持默认，点击开启语音切割</summary>
 <p>
 
-![image](https://github.com/AlanFox240416/wplinote/assets/167155570/59e46378-73f8-413a-aad3-9c1ab8916b08)
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/554628f0-2e10-4a21-9014-c82aa28c8240)
 
 </p>
 </details> 
 
-### 4.2 上传音频
-双击**GPT-SoVITS（使用）.ipynb**，然后打开`/fssd/workdir/GPT-SoVITS/input`文件夹，上传原音频。
-
-### 3.2 切割
-
-## 4 标注音频
+## 4 标注音频（给数据集打标）
 
 ### 4.1 自动打标
 ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/fb04c3c1-0a18-4e27-8489-c750cc33230f)
