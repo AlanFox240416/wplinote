@@ -120,25 +120,25 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </details> 
 设置好后，点击Process Progress，进行降噪。
 <p>降噪，处理1个音频，也会输出2个音频。一个是Noise（噪音），一个是No Echo（没有噪音）。</p>
-<h2>算力互联</h2>
+<h2>3 算力互联</h2>
 <p><strong>云端训练，本地直接看4 音频切割</strong></p>
-<h3>创建实例</h3>
+<h3>3.1 创建实例</h3>
 <details><summary>点击社区镜像-圈中输入“GPT-SoVITS”，搜索到冷鸟鸟的镜像，点击进入创建实例界面。</summary>
 <p>
-</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/40278258-57d1-4601-960d-370e7eb94dc2"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/40278258-57d1-4601-960d-370e7eb94dc2" alt="image" style="max-width: 100%;"></a></p>
-<details><summary>实例名称：gsv（会影响到后续的文件夹路径，统一gsv），选择N-3090-24和1卡，勾选同意《服务端口使用承诺书》。</summary>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/33f6fd04-f2f4-45df-ae2c-c9e1d8ed0e9e"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/33f6fd04-f2f4-45df-ae2c-c9e1d8ed0e9e" alt="image" style="max-width: 100%;"></a></p>
+<details><summary>实例名称：gsv，选择N-3090-24和1卡，勾选同意《服务端口使用承诺书》，其他保持默认。</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/e83ed594-f70e-408c-8e30-cbd57381f074"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/e83ed594-f70e-408c-8e30-cbd57381f074" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
 <p></p>
 </details> 
-<details><summary>Details</summary>
+<h3>3.2 运行实例</h3>
+<details><summary>点击Juptjur，进入界面</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/903dc899-3262-45fe-b942-4365320992ad"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/903dc899-3262-45fe-b942-4365320992ad" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
-### 
 <h2>3 音频切割</h2>
 <p>使用GPT-SoVITS进行模型训练，输入的样本（音频）的时长有限制（比如16G的显存不能超过16s），所以要进行音频切割，切分成短音频。</p>
 <h3>3.1 切割前预处理</h3>
