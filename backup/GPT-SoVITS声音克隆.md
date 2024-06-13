@@ -105,12 +105,14 @@
 ## 4 标注音频
 
 ### 4.1 自动打标
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/fb04c3c1-0a18-4e27-8489-c750cc33230f)
 
 ### 4.2 人工校对
 
 ## 5 训练模型
 
 ### 5.1 训练模型
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/31d6ff3c-2815-4dc0-b43f-699571dc6780)
 
 ### 5.2 下载模型
 
