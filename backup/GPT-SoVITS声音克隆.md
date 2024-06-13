@@ -56,6 +56,34 @@
 
 降噪，处理1个音频，也会输出2个音频。一个是Noise（噪音），一个是No Echo（没有噪音）。
 
+## 算力互联
+**云端训练，本地直接看4 音频切割**
+
+### 创建实例
+<details><summary>点击社区镜像-圈中输入“GPT-SoVITS”，搜索到冷鸟鸟的镜像，点击进入创建实例界面。</summary>
+<p>
+
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/40278258-57d1-4601-960d-370e7eb94dc2)
+
+<details><summary>实例名称：gsv（会影响到后续的文件夹路径，统一gsv），选择N-3090-24和1卡，勾选同意《服务端口使用承诺书》。</summary>
+<p>
+
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/e83ed594-f70e-408c-8e30-cbd57381f074)
+
+</p>
+</details> 
+</p>
+</details> 
+
+<details><summary>Details</summary>
+<p>
+
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/903dc899-3262-45fe-b942-4365320992ad)
+
+</p>
+</details> 
+### 
+
 ## 3 音频切割
 使用GPT-SoVITS进行模型训练，输入的样本（音频）的时长有限制（比如16G的显存不能超过16s），所以要进行音频切割，切分成短音频。
 
