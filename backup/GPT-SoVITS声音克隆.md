@@ -76,7 +76,7 @@
 </details> 
 
 ### 3.2 运行实例
-<details><summary>点击Juptjur，进入界面</summary>
+<details><summary>点击Jupyter，进入笔记本界面</summary>
 <p>
 
 ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/903dc899-3262-45fe-b942-4365320992ad)
@@ -85,10 +85,10 @@
 </details> 
 
 
-## 3 音频切割
+## 4 音频切割
 使用GPT-SoVITS进行模型训练，输入的样本（音频）的时长有限制（比如16G的显存不能超过16s），所以要进行音频切割，切分成短音频。
 
-### 3.1 切割前预处理
+### 4.1 切割前预处理
 使用Pr，选中音频，右键，点击音频增益。
 <details><summary>音频增益，圈中的峰值振幅是最大音频的分贝，调整增益值使峰值在-9dB到-6dB之间。</summary>
 <p>
@@ -98,8 +98,8 @@
 </p>
 </details> 
 
-### 上传音频
-双击**GPT-SoVITS（使用）.ipynb**，然后打开workdir/GPT-SoVITS/input文件夹，上传原音频。
+### 4.2 上传音频
+双击**GPT-SoVITS（使用）.ipynb**，然后打开`/fssd/workdir/GPT-SoVITS/input`文件夹，上传原音频。
 
 ### 3.2 切割
 
