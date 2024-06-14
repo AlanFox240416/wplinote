@@ -196,4 +196,6 @@
 ## 6 本地推理
 
 - 将GPT模型（ckpt后缀）放入GPT_weights文件夹，SoVITS模型（pth后缀）放入SoVITS_weights文件夹；
-- 双击整合包中的`go-webui.bat`
+- 双击整合包中的`go-webui.bat`，等待Web-UI自动打开；
+- 点击`1-GPT-SoVITS-TTS`，再点击`1C-推理`，刷新模型路径，选择对应模型；
+- 勾选开启TTS推理WebUI。
