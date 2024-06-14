@@ -129,7 +129,7 @@
 ## 4 标注音频（给数据集打标）
 
 ### 4.1 自动打标
-<details><summary>保持默认不变，点击开启离线批量ASW</summary>
+<details><summary>保持默认不变，点击开启离线批量ASR</summary>
 <p>
 
 ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/fb04c3c1-0a18-4e27-8489-c750cc33230f)
@@ -137,7 +137,7 @@
 </p>
 </details> 
 
-**先等待ASW完成，再勾选下面的开启打标WebUI。**
+**先等待ASR完成（ASR进程结束），再勾选下面的开启打标WebUI。**
 
 ### 4.2 人工校对
 每进行一次修改后点击保持修改，在**翻页前点击保存修改**，全部修改结束后点击**保存文件**。
