@@ -76,7 +76,7 @@
 
 ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/33f6fd04-f2f4-45df-ae2c-c9e1d8ed0e9e)
 
-<details><summary>实例名称：gsv，选择N-3090-24和1卡，勾选同意《服务端口使用承诺书》，其他保持默认。</summary>
+<details><summary>实例名称：gsv，选择N-3090-24（24G显存）和1卡，勾选同意《服务端口使用承诺书》，其他保持默认。</summary>
 <p>
 
 ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/e83ed594-f70e-408c-8e30-cbd57381f074)
@@ -157,12 +157,13 @@
 <details><summary>先点击SoVITS训练，等SoVITS训练结束后再点击GPT训练。</summary>
 <p>
 
-![image](https://github.com/AlanFox240416/wplinote/assets/167155570/31d6ff3c-2815-4dc0-b43f-699571dc6780)
+!![image](https://github.com/AlanFox240416/wplinote/assets/167155570/20597111-01d0-4b84-9098-874ea2052900)
 
 </p>
 </details> 
 
-关于**圈中的训练轮数**
+- 关于**圈中的batch-size（批次大小）**，24G显存设置为6（每次输入6个数据集）；
+- 关于**圈中的训练轮数**，SoVITS可以高一点，GPT不要超过10。
 
 ### 5.3 下载模型
 
