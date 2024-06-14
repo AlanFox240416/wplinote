@@ -87,7 +87,7 @@
 </details> 
 
 ### 3.2 运行实例
-<details><summary>点击Jupyter，进入笔记本界面</summary>
+<details><summary>等待实例部署完成，点击Jupyter，进入笔记本界面。</summary>
 <p>
 
 ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/903dc899-3262-45fe-b942-4365320992ad)
@@ -99,11 +99,22 @@
 使用GPT-SoVITS进行模型训练，输入的样本（音频）的时长有限制（比如16G的显存不能超过16s），所以要进行音频切割，切分成短音频。
 
 ### 4.1 上传音频
-双击**GPT-SoVITS（使用）.ipynb**，然后打开`/fssd/workdir/GPT-SoVITS/input`文件夹，上传原音频。
+双击**GPT-SoVITS（使用）.ipynb**；
+<details><summary>接着点击第一个代码段（移动数据），点击运行按钮，运行完成后打印“移动成功”；</summary>
+<p>
+
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/8c38009b-67f7-4ee9-a695-6eb07cf74f1c)
+
+</p>
+</details>
+
+然后打开`/fssd/workdir/GPT-SoVITS/input`文件夹，上传原音频。
+
 
 ### 4.2 启动Web-UI
-按照笔记本上的顺序先移动数据，再启动Web-UI。
-注意：Web-UI有两个URL，一个是`loads URL`，一个是`public URL`，选择公网链接`public URL`（余Web-UI同）。
+
+- 运行第二段代码，启动Web-UI。
+- 注意：Web-UI有两个URL，一个是`loads URL`，一个是`public URL`，选择公网链接`public URL`（余Web-UI同）。
 
 ### 4.2 切割
 切割，将上传的音频（素材）划分为短音频（数据集）。

@@ -141,7 +141,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p></p>
 </details> 
 <h3>3.2 运行实例</h3>
-<details><summary>点击Jupyter，进入笔记本界面</summary>
+<details><summary>等待实例部署完成，点击Jupyter，进入笔记本界面。</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/903dc899-3262-45fe-b942-4365320992ad"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/903dc899-3262-45fe-b942-4365320992ad" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
@@ -149,10 +149,18 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h2>4 音频切割（制作数据集）</h2>
 <p>使用GPT-SoVITS进行模型训练，输入的样本（音频）的时长有限制（比如16G的显存不能超过16s），所以要进行音频切割，切分成短音频。</p>
 <h3>4.1 上传音频</h3>
-<p>双击<strong>GPT-SoVITS（使用）.ipynb</strong>，然后打开<code class="notranslate">/fssd/workdir/GPT-SoVITS/input</code>文件夹，上传原音频。</p>
+<p>双击<strong>GPT-SoVITS（使用）.ipynb</strong>；</p>
+<details><summary>接着点击第一个代码段（移动数据），点击运行按钮，运行完成后打印“移动成功”；</summary>
+<p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/8c38009b-67f7-4ee9-a695-6eb07cf74f1c"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/8c38009b-67f7-4ee9-a695-6eb07cf74f1c" alt="image" style="max-width: 100%;"></a></p>
+<p></p>
+</details>
+<p>然后打开<code class="notranslate">/fssd/workdir/GPT-SoVITS/input</code>文件夹，上传原音频。</p>
 <h3>4.2 启动Web-UI</h3>
-<p>按照笔记本上的顺序先移动数据，再启动Web-UI。<br>
-注意：Web-UI有两个URL，一个是<code class="notranslate">loads URL</code>，一个是<code class="notranslate">public URL</code>，选择公网链接<code class="notranslate">public URL</code>（余Web-UI同）。</p>
+<ul>
+<li>运行第二段代码，启动Web-UI。</li>
+<li>注意：Web-UI有两个URL，一个是<code class="notranslate">loads URL</code>，一个是<code class="notranslate">public URL</code>，选择公网链接<code class="notranslate">public URL</code>（余Web-UI同）。</li>
+</ul>
 <h3>4.2 切割</h3>
 <p>切割，将上传的音频（素材）划分为短音频（数据集）。</p>
 <details><summary>保持默认，点击开启语音切割</summary>
