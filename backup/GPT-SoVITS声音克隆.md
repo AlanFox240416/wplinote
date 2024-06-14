@@ -46,7 +46,7 @@
 设置好后，点击Process Progress，进行去混响。
 
 ### 2.3 降躁
-<details><summary>选择No Echo的音频作为输入音频、选择输出文件夹路径、模型改为UVR-DeNoise，其他保持不变。
+<details><summary>选择No Echo的音频作为输入音频、选择输出文件夹路径、模型改为UVR-DeNoise，取消勾选Noise only，其他保持不变。
 </summary>
 <p>
 
@@ -142,7 +142,7 @@
 </p>
 </details> 
 
-### 微调训练
+### 5.2 微调训练
 <details><summary>先点击SoVITS训练，等SoVITS训练结束后再点击GPT训练。</summary>
 <p>
 
@@ -153,6 +153,6 @@
 
 关于**圈中的训练轮数**
 
-### 5.2 下载模型
+### 5.3 下载模型
 
 ## 6 推理
