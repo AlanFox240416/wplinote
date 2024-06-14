@@ -11,15 +11,17 @@
     </script>
 <meta name="description" content="## 在这篇文章中记录一下模型训练和声音克隆流程
 ## 1 前言
-项目开源地址：https://github.com/RVC-Boss/GPT-SoVITS
-官方中文教程文档：https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e
-准备：**wav格式**的音频，训练需要 **不少于6G**显存，推理需要 **不少于4G**显存。">
+
+1. 项目开源地址：https://github.com/RVC-Boss/GPT-SoVITS
+2. 官方中文教程文档：https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e
+3. 准备：**wav格式**的音频，训练需要 **不少于6G**显存，推理需要 **不少于4G**显存。">
 <meta property="og:title" content="GPT-SoVITS声音克隆">
 <meta property="og:description" content="## 在这篇文章中记录一下模型训练和声音克隆流程
 ## 1 前言
-项目开源地址：https://github.com/RVC-Boss/GPT-SoVITS
-官方中文教程文档：https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e
-准备：**wav格式**的音频，训练需要 **不少于6G**显存，推理需要 **不少于4G**显存。">
+
+1. 项目开源地址：https://github.com/RVC-Boss/GPT-SoVITS
+2. 官方中文教程文档：https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e
+3. 准备：**wav格式**的音频，训练需要 **不少于6G**显存，推理需要 **不少于4G**显存。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://note.wrb.me/post/5.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/167155570?s=400&u=64c8b9d7116d3df20cfa190ac7e6c64ff65f37b4&v=4">
@@ -80,10 +82,12 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><h2>在这篇文章中记录一下模型训练和声音克隆流程</h2>
 <h2>1 前言</h2>
-<p>项目开源地址：<a href="https://github.com/RVC-Boss/GPT-SoVITS">https://github.com/RVC-Boss/GPT-SoVITS</a><br>
-官方中文教程文档：<a href="https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e" rel="nofollow">https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e</a><br>
-准备：<strong>wav格式</strong>的音频，训练需要 <strong>不少于6G</strong>显存，推理需要 <strong>不少于4G</strong>显存。<br>
-整合包：<a href="https://www.123pan.com/s/5tIqVv-GVRcv.html" rel="nofollow">https://www.123pan.com/s/5tIqVv-GVRcv.html</a></p>
+<ol>
+<li>项目开源地址：<a href="https://github.com/RVC-Boss/GPT-SoVITS">https://github.com/RVC-Boss/GPT-SoVITS</a></li>
+<li>官方中文教程文档：<a href="https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e" rel="nofollow">https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e</a></li>
+<li>准备：<strong>wav格式</strong>的音频，训练需要 <strong>不少于6G</strong>显存，推理需要 <strong>不少于4G</strong>显存。</li>
+<li>整合包：<a href="https://www.123pan.com/s/5tIqVv-GVRcv.html" rel="nofollow">https://www.123pan.com/s/5tIqVv-GVRcv.html</a></li>
+</ol>
 <blockquote>
 <p>更新：下载<a href="https://github.com/RVC-Boss/GPT-SoVITS/archive/refs/heads/main.zip">main代码</a>，用GPT-SoVITS-main里的文件替换整合包中的文件；</p>
 </blockquote>
@@ -93,23 +97,17 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>有<strong>背景音</strong>的音频先进行人声伴奏分离。下载<a href="https://github.com/Anjok07/ultimatevocalremovergui/releases">uvr5客户端</a>，安装并运行。</li>
 </ul>
 <h3>2.1 提取人声</h3>
-<pre class="notranslate"><code class="notranslate">&lt;details&gt;&lt;summary&gt;在urv5操作界面中选择输入音频路径、输出文件夹路径、格式勾选wav、处理算法MDX-Net、模型Bs-Roformer-Viperx-1297、勾选GPU Conversion和Vocals Only，其他保持默认。设置好后，点击Process Progress，进行人声提取。
-&lt;/summary&gt;
-&lt;p&gt;
-
-![image](https://github.com/AlanFox240416/wplinote/assets/167155570/4dc05227-b2ad-4e43-9b3f-ad0d7a802d87)
-
-&lt;/p&gt;
-&lt;/details&gt; 
-
-&lt;details&gt;&lt;summary&gt;如果有报错：An Error Occurred: ZeroDivisionError&lt;/summary&gt;
-&lt;p&gt;
-
-原因：输入的多个音频中有几个**音频的时长太短。**
-
-&lt;/p&gt;
-&lt;/details&gt; 
-</code></pre>
+<details><summary>在urv5操作界面中选择输入音频路径、输出文件夹路径、格式勾选wav、处理算法MDX-Net、模型Bs-Roformer-Viperx-1297、勾选GPU Conversion和Vocals Only，其他保持默认。设置好后，点击Process Progress，进行人声提取。
+</summary>
+<p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/4dc05227-b2ad-4e43-9b3f-ad0d7a802d87"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/4dc05227-b2ad-4e43-9b3f-ad0d7a802d87" alt="image" style="max-width: 100%;"></a></p>
+<p></p>
+</details> 
+<details><summary>如果有报错：An Error Occurred: ZeroDivisionError</summary>
+<p>
+</p><p>原因：输入的多个音频中有几个<strong>音频的时长太短。</strong></p>
+<p></p>
+</details> 
 <ul>
 <li><strong>提取的人声比较干净就跳过接下来的去混响和降噪。</strong></li>
 </ul>
@@ -129,58 +127,45 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </li>
 </ul>
 <h3>2.3 降躁</h3>
-<pre class="notranslate"><code class="notranslate">&lt;details&gt;&lt;summary&gt;选择No Echo的音频作为输入音频、选择输出文件夹路径、模型改为UVR-DeNoise，取消勾选Noise only，其他保持不变。
-&lt;/summary&gt;
-&lt;p&gt;
-
-![image](https://github.com/AlanFox240416/wplinote/assets/167155570/9f4870f8-7940-4cfd-91f0-5b8026f86bc7)
-
-&lt;/p&gt;
-&lt;/details&gt; 
-</code></pre>
+<details><summary>选择No Echo的音频作为输入音频、选择输出文件夹路径、模型改为UVR-DeNoise，取消勾选Noise only，其他保持不变。
+</summary>
+<p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/9f4870f8-7940-4cfd-91f0-5b8026f86bc7"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/9f4870f8-7940-4cfd-91f0-5b8026f86bc7" alt="image" style="max-width: 100%;"></a></p>
+<p></p>
+</details> 
 <ul>
 <li>设置好后，点击Process Progress，进行降噪。</li>
 </ul>
 <h3>2.4 音频调峰</h3>
 <ul>
-<li>
-<p>使用Pr，选中音频，右键，点击音频增益。</p>
-  <details><summary>音频增益，圈中的峰值振幅是最大音频的分贝，调整增益值使峰值在-9dB到-6dB之间。</summary>
-  <p>
-</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/59e46378-73f8-413a-aad3-9c1ab8916b08"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/59e46378-73f8-413a-aad3-9c1ab8916b08" alt="image" style="max-width: 100%;"></a></p>
-  <p></p>
-  </details> 
-</li>
+<li>使用Pr，选中音频，右键，点击音频增益。</li>
 </ul>
+<details><summary>音频增益，圈中的峰值振幅是最大音频的分贝，调整增益值使峰值在-9dB到-6dB之间。</summary>
+<p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/59e46378-73f8-413a-aad3-9c1ab8916b08"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/59e46378-73f8-413a-aad3-9c1ab8916b08" alt="image" style="max-width: 100%;"></a></p>
+<p></p>
+</details> 
 <h2>3 算力互联</h2>
 <ul>
 <li><strong>云端训练，本地训练直接看“4 音频切割”</strong></li>
 </ul>
 <h3>3.1 创建实例</h3>
-<pre class="notranslate"><code class="notranslate">&lt;details&gt;&lt;summary&gt;点击社区镜像-圈中输入“GPT-SoVITS”，搜索到冷鸟鸟的镜像，点击进入创建实例界面。&lt;/summary&gt;
-&lt;p&gt;
-
-![image](https://github.com/AlanFox240416/wplinote/assets/167155570/33f6fd04-f2f4-45df-ae2c-c9e1d8ed0e9e)
-
-&lt;details&gt;&lt;summary&gt;实例名称：gsv，选择N-3090-24（24G显存）和1卡，勾选同意《服务端口使用承诺书》，其他保持默认。&lt;/summary&gt;
-&lt;p&gt;
-
-![image](https://github.com/AlanFox240416/wplinote/assets/167155570/e83ed594-f70e-408c-8e30-cbd57381f074)
-
-&lt;/p&gt;
-&lt;/details&gt; 
-&lt;/p&gt;
-&lt;/details&gt; 
-</code></pre>
+<details><summary>点击社区镜像-圈中输入“GPT-SoVITS”，搜索到冷鸟鸟的镜像，点击进入创建实例界面。</summary>
+<p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/33f6fd04-f2f4-45df-ae2c-c9e1d8ed0e9e"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/33f6fd04-f2f4-45df-ae2c-c9e1d8ed0e9e" alt="image" style="max-width: 100%;"></a></p>
+<details><summary>实例名称：gsv，选择N-3090-24（24G显存）和1卡，勾选同意《服务端口使用承诺书》，其他保持默认。</summary>
+<p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/e83ed594-f70e-408c-8e30-cbd57381f074"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/e83ed594-f70e-408c-8e30-cbd57381f074" alt="image" style="max-width: 100%;"></a></p>
+<p></p>
+</details> 
+<p></p>
+</details> 
 <h3>3.2 运行实例</h3>
-<pre class="notranslate"><code class="notranslate">&lt;details&gt;&lt;summary&gt;等待实例部署完成，点击Jupyter，进入笔记本界面。&lt;/summary&gt;
-&lt;p&gt;
-
-![image](https://github.com/AlanFox240416/wplinote/assets/167155570/903dc899-3262-45fe-b942-4365320992ad)
-
-&lt;/p&gt;
-&lt;/details&gt; 
-</code></pre>
+<details><summary>等待实例部署完成，点击Jupyter，进入笔记本界面。</summary>
+<p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/903dc899-3262-45fe-b942-4365320992ad"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/903dc899-3262-45fe-b942-4365320992ad" alt="image" style="max-width: 100%;"></a></p>
+<p></p>
+</details> 
 <h2>4 音频切割（制作数据集）</h2>
 <ul>
 <li>使用GPT-SoVITS进行模型训练，输入的样本（音频）的时长有限制（比如16G的显存不能超过16s），所以要进行音频切割，切分成短音频。</li>
