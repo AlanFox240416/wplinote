@@ -193,4 +193,7 @@
 
 5. 下载结束后，回到算力互联，点击删除实例。
 
-## 6 推理
+## 6 本地推理
+
+- 将GPT模型（ckpt后缀）放入GPT_weights文件夹，SoVITS模型（pth后缀）放入SoVITS_weights文件夹；
+- 双击整合包中的`go-webui.bat`
