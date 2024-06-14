@@ -108,7 +108,7 @@
 </p>
 </details>
 
-然后打开`/fssd/workdir/GPT-SoVITS/input`文件夹，上传原音频。
+然后打开`/fssd/workdir/GPT-SoVITS/input`文件夹，上传原音频（上传时间因网速和音频大小而异，**耐心等待，不要重复上传**）。
 
 
 ### 4.2 启动Web-UI
