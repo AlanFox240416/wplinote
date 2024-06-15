@@ -199,3 +199,12 @@
 2. 双击整合包中的`go-webui.bat`，**等待**Web-UI自动打开；
 3. 点击`1-GPT-SoVITS-TTS`，再点击`1C-推理`，刷新模型路径，选择对应模型；
 4. 勾选开启TTS推理WebUI，**等待**打开推理界面。
+    <details><summary>选择GPT模型和SoVITS模型，上传参考音频（小于10s，没有会报错），输入参考音频的文本，输入需要合成的文本，点击合成语音。</summary>
+    <p>
+    
+    ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/6ac494ef-fb5d-4ad0-91f8-d8fe9c2ff167)
+    
+    </p>
+    </details> 
+
+5. 合成语音时间过长，注意一下终端，是否有进行推理，或者报错。

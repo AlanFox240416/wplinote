@@ -244,10 +244,26 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ol>
 <h2>6 本地推理</h2>
 <ol>
-<li>将GPT模型（ckpt后缀）放入GPT_weights文件夹，SoVITS模型（pth后缀）放入SoVITS_weights文件夹；</li>
-<li>双击整合包中的<code class="notranslate">go-webui.bat</code>，<strong>等待</strong>Web-UI自动打开；</li>
-<li>点击<code class="notranslate">1-GPT-SoVITS-TTS</code>，再点击<code class="notranslate">1C-推理</code>，刷新模型路径，选择对应模型；</li>
-<li>勾选开启TTS推理WebUI，<strong>等待</strong>打开推理界面。</li>
+<li>
+<p>将GPT模型（ckpt后缀）放入GPT_weights文件夹，SoVITS模型（pth后缀）放入SoVITS_weights文件夹；</p>
+</li>
+<li>
+<p>双击整合包中的<code class="notranslate">go-webui.bat</code>，<strong>等待</strong>Web-UI自动打开；</p>
+</li>
+<li>
+<p>点击<code class="notranslate">1-GPT-SoVITS-TTS</code>，再点击<code class="notranslate">1C-推理</code>，刷新模型路径，选择对应模型；</p>
+</li>
+<li>
+<p>勾选开启TTS推理WebUI，<strong>等待</strong>打开推理界面。</p>
+ <details><summary>选择GPT模型和SoVITS模型，上传参考音频（小于10s，没有会报错），输入参考音频的文本，输入需要合成的文本，点击合成语音。</summary>
+ <p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/6ac494ef-fb5d-4ad0-91f8-d8fe9c2ff167"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/6ac494ef-fb5d-4ad0-91f8-d8fe9c2ff167" alt="image" style="max-width: 100%;"></a></p>
+ <p></p>
+ </details> 
+</li>
+<li>
+<p>合成语音时间过长，注意一下终端，是否有进行推理，或者报错。</p>
+</li>
 </ol></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
