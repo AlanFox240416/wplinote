@@ -172,26 +172,34 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <h3>4.1 上传音频</h3>
 <ul>
-<li>双击<strong>GPT-SoVITS（使用）.ipynb</strong>；</li>
-</ul>
+<li>
+<p>双击<strong>GPT-SoVITS（使用）.ipynb</strong>；</p>
 <details><summary>接着点击第一个代码段（移动数据），点击运行按钮，运行完成后打印“移动成功”；</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/8c38009b-67f7-4ee9-a695-6eb07cf74f1c"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/8c38009b-67f7-4ee9-a695-6eb07cf74f1c" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details>
+</li>
+<li>
 <p>然后打开<code class="notranslate">/fssd/workdir/GPT-SoVITS/input</code>文件夹，上传原音频（上传时间因网速和音频大小而异，<strong>耐心等待，不要重复上传</strong>）。</p>
+</li>
+</ul>
 <h3>4.2 启动Web-UI</h3>
 <ul>
 <li>运行第二段代码，启动Web-UI。</li>
 <li>注意：Web-UI有两个URL，一个是<code class="notranslate">loads URL</code>，一个是<code class="notranslate">public URL</code>，选择公网链接<code class="notranslate">public URL</code>（余Web-UI同）。</li>
 </ul>
 <h3>4.2 切割</h3>
+<ul>
+<li>
 <p>切割，将上传的音频（素材）划分为短音频（数据集）。</p>
 <details><summary>保持默认，点击开启语音切割</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/554628f0-2e10-4a21-9014-c82aa28c8240"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/554628f0-2e10-4a21-9014-c82aa28c8240" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
+</li>
+</ul>
 <h2>4 标注音频（给数据集打标）</h2>
 <h3>4.1 自动打标</h3>
 <details><summary>保持默认不变，点击开启离线批量ASR</summary>
@@ -201,7 +209,9 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </details> 
 <p><strong>先等待ASR完成（ASR进程结束），再勾选下面的开启打标WebUI。</strong></p>
 <h3>4.2 人工校对</h3>
-<p>每进行一次修改后点击保持修改，在<strong>翻页前点击保存修改</strong>，全部修改结束后点击<strong>保存文件</strong>。</p>
+<ul>
+<li>每进行一次修改后点击保持修改，在<strong>翻页前点击保存修改</strong>，全部修改结束后点击<strong>保存文件</strong>。</li>
+</ul>
 <h2>5 训练模型</h2>
 <h3>5.1 数据集格式化</h3>
 <details><summary>点击1-GPT-SoVITS-TTS，输入模型名称，点击1A-训练集格式化工具，保持默认设置不变，点击开启一键三连。</summary>

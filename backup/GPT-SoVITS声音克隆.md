@@ -111,15 +111,15 @@
 
 - 双击**GPT-SoVITS（使用）.ipynb**；
 
-<details><summary>接着点击第一个代码段（移动数据），点击运行按钮，运行完成后打印“移动成功”；</summary>
-<p>
+  <details><summary>接着点击第一个代码段（移动数据），点击运行按钮，运行完成后打印“移动成功”；</summary>
+  <p>
+  
+  ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/8c38009b-67f7-4ee9-a695-6eb07cf74f1c)
+  
+  </p>
+  </details>
 
-![image](https://github.com/AlanFox240416/wplinote/assets/167155570/8c38009b-67f7-4ee9-a695-6eb07cf74f1c)
-
-</p>
-</details>
-
-然后打开`/fssd/workdir/GPT-SoVITS/input`文件夹，上传原音频（上传时间因网速和音频大小而异，**耐心等待，不要重复上传**）。
+- 然后打开`/fssd/workdir/GPT-SoVITS/input`文件夹，上传原音频（上传时间因网速和音频大小而异，**耐心等待，不要重复上传**）。
 
 
 ### 4.2 启动Web-UI
@@ -128,14 +128,16 @@
 - 注意：Web-UI有两个URL，一个是`loads URL`，一个是`public URL`，选择公网链接`public URL`（余Web-UI同）。
 
 ### 4.2 切割
-切割，将上传的音频（素材）划分为短音频（数据集）。
-<details><summary>保持默认，点击开启语音切割</summary>
-<p>
 
-![image](https://github.com/AlanFox240416/wplinote/assets/167155570/554628f0-2e10-4a21-9014-c82aa28c8240)
+- 切割，将上传的音频（素材）划分为短音频（数据集）。
 
-</p>
-</details> 
+  <details><summary>保持默认，点击开启语音切割</summary>
+  <p>
+  
+  ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/554628f0-2e10-4a21-9014-c82aa28c8240)
+  
+  </p>
+  </details> 
 
 ## 4 标注音频（给数据集打标）
 
@@ -151,7 +153,8 @@
 **先等待ASR完成（ASR进程结束），再勾选下面的开启打标WebUI。**
 
 ### 4.2 人工校对
-每进行一次修改后点击保持修改，在**翻页前点击保存修改**，全部修改结束后点击**保存文件**。
+
+- 每进行一次修改后点击保持修改，在**翻页前点击保存修改**，全部修改结束后点击**保存文件**。
 
 ## 5 训练模型
 
