@@ -69,14 +69,27 @@ bash <(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/i
 </p>
 </details> 
 
-## 4.1 创建Cloudflare的工作目录
+<details><summary>点击复制，其中ey开头的部分就是Argo token；</summary>
+<p>
+
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0)
+
+</p>
+</details> 
+
+## 4.2 创建Cloudflare的工作目录
 ```shell
 mkdir -p ~/domains/cloudflared && cd ~/domains/cloudflared
 ```
 
-## 4. 3下载Cloudflare
+## 4.3下载Cloudflare
 ```shell
 wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z && 7z x cloudflared-freebsd-latest.7z && rm cloudflared-freebsd-latest.7z && mv -f ./temp/* ./cloudflared && rm -rf temp
 ```
 
+## 4.4 测试运行 cloudflared
+**tips：将`<Argo token>`换成自己的Argo token**
+```shell
+./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <Argo token>
+```
 
