@@ -142,7 +142,9 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <div class="highlight highlight-source-shell"><pre class="notranslate">wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> 7z x cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> rm cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> mv -f ./temp/<span class="pl-k">*</span> ./cloudflared <span class="pl-k">&amp;&amp;</span> rm -rf temp</pre></div>
 <h2>4.4 测试运行 cloudflared</h2>
 <p><strong>tips：将<code class="notranslate">&lt;Argo token&gt;</code>换成自己的Argo token</strong></p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div></div>
+<div class="highlight highlight-source-shell"><pre class="notranslate">./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
+<h2>4.5 pm2保活cloudflared</h2>
+<p>先按<code class="notranslate">Ctrl+C</code>，停止运行cloudflared；</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

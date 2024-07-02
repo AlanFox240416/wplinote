@@ -93,3 +93,5 @@ wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z && 7z
 ./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <Argo token>
 ```
 
+## 4.5 pm2保活cloudflared
+先按`Ctrl+C`，停止运行cloudflared；
