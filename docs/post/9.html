@@ -136,15 +136,16 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
-<h2>4.2 创建Cloudflare的工作目录</h2>
+<h2>4.2 创建cloudflared的工作目录</h2>
 <div class="highlight highlight-source-shell"><pre class="notranslate">mkdir -p <span class="pl-k">~</span>/domains/cloudflared <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains/cloudflared</pre></div>
-<h2>4.3下载Cloudflare</h2>
+<h2>4.3下载cloudflared</h2>
 <div class="highlight highlight-source-shell"><pre class="notranslate">wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> 7z x cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> rm cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> mv -f ./temp/<span class="pl-k">*</span> ./cloudflared <span class="pl-k">&amp;&amp;</span> rm -rf temp</pre></div>
 <h2>4.4 测试运行 cloudflared</h2>
 <p><strong>tips：将<code class="notranslate">&lt;Argo token&gt;</code>换成自己的Argo token</strong></p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
 <h2>4.5 pm2保活cloudflared</h2>
-<p>先按<code class="notranslate">Ctrl+C</code>，停止运行cloudflared；</p></div>
+<p>先按<code class="notranslate">Ctrl+C</code>，停止运行cloudflared；使用以下命令运行cloudflared（<strong>同理，<code class="notranslate">&lt;Argo token&gt;</code>换成自己的Argo token</strong>）。</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

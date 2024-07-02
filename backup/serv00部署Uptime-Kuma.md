@@ -77,12 +77,12 @@ bash <(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/i
 </p>
 </details> 
 
-## 4.2 创建Cloudflare的工作目录
+## 4.2 创建cloudflared的工作目录
 ```shell
 mkdir -p ~/domains/cloudflared && cd ~/domains/cloudflared
 ```
 
-## 4.3下载Cloudflare
+## 4.3下载cloudflared
 ```shell
 wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z && 7z x cloudflared-freebsd-latest.7z && rm cloudflared-freebsd-latest.7z && mv -f ./temp/* ./cloudflared && rm -rf temp
 ```
@@ -94,4 +94,7 @@ wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z && 7z
 ```
 
 ## 4.5 pm2保活cloudflared
-先按`Ctrl+C`，停止运行cloudflared；
+先按`Ctrl+C`，停止运行cloudflared；使用以下命令运行cloudflared（**同理，`<Argo token>`换成自己的Argo token**）。
+```shell
+pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <Argo token>
+```
