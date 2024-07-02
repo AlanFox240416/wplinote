@@ -26,17 +26,11 @@
 </p>
 </details> 
 
-# 3. 安装pm2
-ssh连接上serv00服务器，可以使用pm2，pm2是保活用的，安装命令如下：
-```shell
-bash <(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh)
-```
+# 3. Cloudflare Tunnel的安装及配置
 
-# 4. Cloudflare Tunnel的安装及配置
+## 3.1 获取Argo token
 
-## 4.1 获取Argo token
-
-### 4.1.1 创建隧道
+### 3.1.1 创建隧道
 1. 点击首页左侧菜单栏中Zero Trust；
 2. 进入Zero Trust控制台后，点击Networks，再点击Tunnels，然后点击Create a tunnel；
     <details><summary>操作图示</summary>
@@ -60,7 +54,7 @@ bash <(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/i
     </p>
     </details> 
 
-## 4.1.2 Argo token
+## 3.1.2 Argo token
 <details><summary>回到Tunnels界面，找到对应隧道，点击右侧三个点，再点击Configure（配置）；</summary>
 <p>
 
@@ -77,24 +71,31 @@ bash <(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/i
 </p>
 </details> 
 
-## 4.2 创建cloudflared的工作目录
+# 3.2 安装pm2
+ssh连接上serv00服务器，可以使用pm2，pm2是保活用的，安装命令如下：
+```shell
+bash <(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh)
+```
+
+## 3.3 创建cloudflared的工作目录
 ```shell
 mkdir -p ~/domains/cloudflared && cd ~/domains/cloudflared
 ```
 
-## 4.3下载cloudflared
+## 3.4 下载cloudflared
 ```shell
 wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z && 7z x cloudflared-freebsd-latest.7z && rm cloudflared-freebsd-latest.7z && mv -f ./temp/* ./cloudflared && rm -rf temp
 ```
 
-## 4.4 测试运行 cloudflared
+## 3.4 测试运行 cloudflared
 **tips：将`<Argo token>`换成自己的Argo token**
 ```shell
 ./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <Argo token>
 ```
 
-## 4.5 pm2保活cloudflared
+## 3.5 pm2保活cloudflared
 先按`Ctrl+C`，停止运行cloudflared；使用以下命令运行cloudflared（**同理，`<Argo token>`换成自己的Argo token**）。
 ```shell
 pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <Argo token>
 ```
+**tip：提示”pm2 Command not found“，解决方法：断开SSH连接，再重新连接。**
