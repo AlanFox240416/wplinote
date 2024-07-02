@@ -71,7 +71,7 @@
 </p>
 </details> 
 
-# 3.2 安装pm2
+## 3.2 安装pm2
 ssh连接上serv00服务器，可以使用pm2，pm2是保活用的，安装命令如下：
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh)
@@ -99,3 +99,23 @@ wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z && 7z
 pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <Argo token>
 ```
 **tip：提示”pm2 Command not found“，解决方法：断开SSH连接，再重新连接。**
+
+
+# 4. 安装Uptime-Kuma
+
+```shell
+# 下载 v1.22.1 版本的源代码
+cd ~/domains && wget https://github.com/louislam/uptime-kuma/archive/refs/tags/1.22.1.zip && unzip 1.22.1.zip && rm -rf public_html && mv -f uptime-kuma-1.22.1 public_html && rm -f 1.22.1.zip && cd public_html
+
+# 设置生产模式
+npm ci --production
+
+# 下载dist文件
+wget https://github.com/louislam/uptime-kuma/releases/download/1.22.1/dist.tar.gz && tar -xzvf dist.tar.gz && rm dist.tar.gz
+
+# 安装依赖（无视报错）
+npm install
+
+# 测试运行，PORT改为自己部署Uptime-Kuma的端口
+node server/server.js --port=PORT
+```

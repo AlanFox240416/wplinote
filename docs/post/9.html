@@ -133,7 +133,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
-<h1>3.2 安装pm2</h1>
+<h2>3.2 安装pm2</h2>
 <p>ssh连接上serv00服务器，可以使用pm2，pm2是保活用的，安装命令如下：</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh<span class="pl-pds">)</span></span></pre></div>
 <h2>3.3 创建cloudflared的工作目录</h2>
@@ -146,7 +146,22 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h2>3.5 pm2保活cloudflared</h2>
 <p>先按<code class="notranslate">Ctrl+C</code>，停止运行cloudflared；使用以下命令运行cloudflared（<strong>同理，<code class="notranslate">&lt;Argo token&gt;</code>换成自己的Argo token</strong>）。</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
-<p><strong>tip：提示”pm2 Command not found“，解决方法：断开SSH连接，再重新连接。</strong></p></div>
+<p><strong>tip：提示”pm2 Command not found“，解决方法：断开SSH连接，再重新连接。</strong></p>
+<h1>4. 安装Uptime-Kuma</h1>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 下载 v1.22.1 版本的源代码</span>
+<span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains <span class="pl-k">&amp;&amp;</span> wget https://github.com/louislam/uptime-kuma/archive/refs/tags/1.22.1.zip <span class="pl-k">&amp;&amp;</span> unzip 1.22.1.zip <span class="pl-k">&amp;&amp;</span> rm -rf public_html <span class="pl-k">&amp;&amp;</span> mv -f uptime-kuma-1.22.1 public_html <span class="pl-k">&amp;&amp;</span> rm -f 1.22.1.zip <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> public_html
+
+<span class="pl-c"><span class="pl-c">#</span> 设置生产模式</span>
+npm ci --production
+
+<span class="pl-c"><span class="pl-c">#</span> 下载dist文件</span>
+wget https://github.com/louislam/uptime-kuma/releases/download/1.22.1/dist.tar.gz <span class="pl-k">&amp;&amp;</span> tar -xzvf dist.tar.gz <span class="pl-k">&amp;&amp;</span> rm dist.tar.gz
+
+<span class="pl-c"><span class="pl-c">#</span> 安装依赖（无视报错）</span>
+npm install
+
+<span class="pl-c"><span class="pl-c">#</span> 测试运行，PORT改为自己部署Uptime-Kuma的端口</span>
+node server/server.js --port=PORT</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
