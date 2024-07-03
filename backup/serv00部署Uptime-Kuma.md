@@ -134,13 +134,13 @@ sshpass -p '密码' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/n
 EOF
 ``` 
 
-2. 给 auto_renew.sh 添加可执行权限；
+2. 给 auto_renew.sh 添加可执行权限（再次 ls 查看，这个脚本会变红）；
 ```shell
 chmod +x auto_renew.sh
 ``` 
 
 3.  点击面板左侧的 Cron jobs（定时任务） ，找到 Add cron job （添加任务）；
-4. **Specify time** 选择 **Monthly**，**Form type** 选择 **Advanced**，**Command** 写 **auto_renew.sh 脚本文件的绝对路径**，如 `/home/用户名/domains/public_html/auto_renew.sh 2>/dev/null 2>&1` ；
+4. **Specify time** 选择 **Monthly**，**Form type** 选择 **Advanced**，**Command** 写 **auto_renew.sh 脚本文件的绝对路径（可以使用 `pwd` 命令查看）**，如 `/home/用户名/domains/public_html/auto_renew.sh 2>/dev/null 2>&1` ；
 
     <details><summary>操作图示</summary>
     <p>

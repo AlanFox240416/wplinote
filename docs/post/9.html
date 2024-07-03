@@ -176,7 +176,7 @@ node server/server.js --port=PORT</pre></div>
 <span class="pl-s">sshpass -p '密码' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -tt 用户名@地址 "exit" &amp;</span>
 <span class="pl-s"><span class="pl-k">EOF</span></span></pre></div>
 <ol start="2">
-<li>给 auto_renew.sh 添加可执行权限；</li>
+<li>给 auto_renew.sh 添加可执行权限（再次 ls 查看，这个脚本会变红）；</li>
 </ol>
 <div class="highlight highlight-source-shell"><pre class="notranslate">chmod +x auto_renew.sh</pre></div>
 <ol start="3">
@@ -184,7 +184,7 @@ node server/server.js --port=PORT</pre></div>
 <p>点击面板左侧的 Cron jobs（定时任务） ，找到 Add cron job （添加任务）；</p>
 </li>
 <li>
-<p><strong>Specify time</strong> 选择 <strong>Monthly</strong>，<strong>Form type</strong> 选择 <strong>Advanced</strong>，<strong>Command</strong> 写 <strong>auto_renew.sh 脚本文件的绝对路径</strong>，如 <code class="notranslate">/home/用户名/domains/public_html/auto_renew.sh 2&gt;/dev/null 2&gt;&amp;1</code> ；</p>
+<p><strong>Specify time</strong> 选择 <strong>Monthly</strong>，<strong>Form type</strong> 选择 <strong>Advanced</strong>，<strong>Command</strong> 写 <strong>auto_renew.sh 脚本文件的绝对路径（可以使用 <code class="notranslate">pwd</code> 命令查看）</strong>，如 <code class="notranslate">/home/用户名/domains/public_html/auto_renew.sh 2&gt;/dev/null 2&gt;&amp;1</code> ；</p>
  <details><summary>操作图示</summary>
  <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/7c6568f9-f445-4a94-9c53-9edc2dc11484"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/7c6568f9-f445-4a94-9c53-9edc2dc11484" alt="image" style="max-width: 100%;"></a></p>
