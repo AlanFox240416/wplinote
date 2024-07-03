@@ -118,6 +118,9 @@ npm install
 
 # 测试运行，PORT 改为自己部署 Uptime-Kuma 的端口
 node server/server.js --port=PORT
+
+# pm2 保活 Uptime-Kuma，PORT 改为自己部署 Uptime-Kuma 的端口
+pm2 start server/server.js --name uptime-kuma -- --port=PORT
 ```
 
 # 5. serv00的续期和自启

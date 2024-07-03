@@ -161,7 +161,10 @@ wget https://github.com/louislam/uptime-kuma/releases/download/1.22.1/dist.tar.g
 npm install
 
 <span class="pl-c"><span class="pl-c">#</span> 测试运行，PORT 改为自己部署 Uptime-Kuma 的端口</span>
-node server/server.js --port=PORT</pre></div>
+node server/server.js --port=PORT
+
+<span class="pl-c"><span class="pl-c">#</span> pm2 保活 Uptime-Kuma，PORT 改为自己部署 Uptime-Kuma 的端口</span>
+pm2 start server/server.js --name uptime-kuma -- --port=PORT</pre></div>
 <h1>5. serv00的续期和自启</h1>
 <h2>5.1 续期</h2>
 <ul>
