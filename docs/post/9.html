@@ -9,9 +9,9 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="## 使用serv00部署Uptime-Kuma的教程在[Saika‘blog](https://blog.rappit.site/2024/01/27/serv00_logs/)中已有说明，近期serv00自定义域名`xxx.username.serv00.net`的证书申请困难（该域名的每周证书限额已用完），这里记录一下部署的过程。">
+<meta name="description" content="## 使用 serv00 部署 Uptime-Kuma 的教程在 [Saika‘blog](https://blog.rappit.site/2024/01/27/serv00_logs/) 中已有说明，近期 serv00 自定义域名 `xxx.username.serv00.net` 的证书申请困难（该域名的每周证书限额已用完），这里记录一下部署的过程。">
 <meta property="og:title" content="serv00部署Uptime-Kuma">
-<meta property="og:description" content="## 使用serv00部署Uptime-Kuma的教程在[Saika‘blog](https://blog.rappit.site/2024/01/27/serv00_logs/)中已有说明，近期serv00自定义域名`xxx.username.serv00.net`的证书申请困难（该域名的每周证书限额已用完），这里记录一下部署的过程。">
+<meta property="og:description" content="## 使用 serv00 部署 Uptime-Kuma 的教程在 [Saika‘blog](https://blog.rappit.site/2024/01/27/serv00_logs/) 中已有说明，近期 serv00 自定义域名 `xxx.username.serv00.net` 的证书申请困难（该域名的每周证书限额已用完），这里记录一下部署的过程。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://note.wrb.me/post/9.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/167155570?s=400&u=64c8b9d7116d3df20cfa190ac7e6c64ff65f37b4&v=4">
@@ -70,34 +70,34 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h2>使用serv00部署Uptime-Kuma的教程在<a href="https://blog.rappit.site/2024/01/27/serv00_logs/" rel="nofollow">Saika‘blog</a>中已有说明，近期serv00自定义域名<code class="notranslate">xxx.username.serv00.net</code>的证书申请困难（该域名的每周证书限额已用完），这里记录一下部署的过程。</h2>
+<div class="markdown-body" id="postBody"><h2>使用 serv00 部署 Uptime-Kuma 的教程在 <a href="https://blog.rappit.site/2024/01/27/serv00_logs/" rel="nofollow">Saika‘blog</a> 中已有说明，近期 serv00 自定义域名 <code class="notranslate">xxx.username.serv00.net</code> 的证书申请困难（该域名的每周证书限额已用完），这里记录一下部署的过程。</h2>
 <h1>1. 启用运行权限</h1>
-<details><summary>点击Additional services选项卡，找到Run your own applications，设置为Enabled。</summary>
+<details><summary>点击 Additional services 选项卡，找到 Run your own applications，设置为 Enabled。</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/a6640525-b3bc-40f5-90c1-2da04e9e35b5"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/a6640525-b3bc-40f5-90c1-2da04e9e35b5" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
 <h1>2. 放行端口</h1>
-<details><summary>点击Port reservation，找到Add port，输入要放行的端口号，点击Add。</summary>
+<details><summary>点击 Port reservation，找到 Add port，输入要放行的端口号，点击 Add。</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/3e0073db-7d66-4da8-8e27-2825fdcb97ff"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/3e0073db-7d66-4da8-8e27-2825fdcb97ff" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
 <h1>3. 添加站点</h1>
-<details><summary>点击WWW websites，找到Add new website，输入域名，点击Advanced settings，选择Website type为Proxy，Proxy port设置为刚刚放行的端口。</summary>
+<details><summary>点击 WWW websites，找到 Add new website，输入域名，点击 Advanced settings，选择 Website type为 Proxy，Proxy port 设置为刚刚放行的端口。</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/bf7fc9a3-19d9-4301-a746-20369144bb15"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/bf7fc9a3-19d9-4301-a746-20369144bb15" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
-<h1>3. Cloudflare Tunnel的安装及配置</h1>
-<h2>3.1 获取Argo token</h2>
+<h1>3. Cloudflare Tunnel 的安装及配置</h1>
+<h2>3.1 获取 Argo token</h2>
 <h3>3.1.1 创建隧道</h3>
 <ol>
 <li>
-<p>点击首页左侧菜单栏中Zero Trust；</p>
+<p>点击首页左侧菜单栏中 Zero Trust；</p>
 </li>
 <li>
-<p>进入Zero Trust控制台后，点击Networks，再点击Tunnels，然后点击Create a tunnel；</p>
+<p>进入 Zero Trust 控制台后，点击 Networks，再点击 Tunnels，然后点击 Create a tunnel；</p>
  <details><summary>操作图示</summary>
  <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/49729b0b-132e-4840-8f5c-340a9500d068"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/49729b0b-132e-4840-8f5c-340a9500d068" alt="image" style="max-width: 100%;"></a></p>
@@ -105,16 +105,16 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
  </details> 
 </li>
 <li>
-<p>Select tunnel type（选择隧道类型）：保证默认，点击Next；</p>
+<p>Select tunnel type（选择隧道类型）：保证默认，点击 Next；</p>
 </li>
 <li>
-<p>Name your tunnel（命名您的隧道）：在Tunnel name输入框中输入隧道名，点击Save tunnel；</p>
+<p>Name your tunnel（命名您的隧道）：在 Tunnel name 输入框中输入隧道名，点击 Save tunnel；</p>
 </li>
 <li>
-<p>Install and run connectors（安装并运行连接器）：点击Next；</p>
+<p>Install and run connectors（安装并运行连接器）：点击 Next；</p>
 </li>
 <li>
-<p>Route tunne（路由隧道）：在Public Hostnames（公共主机名）界面，按下图红圈内的例子输入，然后点击右下角的Save tunnel；</p>
+<p>Route tunne（路由隧道）：在 Public Hostnames（公共主机名）界面，按下图红圈内的例子输入，然后点击右下角的 Save tunnel；</p>
  <details><summary>操作图示</summary>
  <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/1be626e3-6470-4446-bca1-cdfcf200bf60"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/1be626e3-6470-4446-bca1-cdfcf200bf60" alt="image" style="max-width: 100%;"></a></p>
@@ -122,53 +122,53 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
  </details> 
 </li>
 </ol>
-<h2>3.1.2 Argo token</h2>
-<details><summary>回到Tunnels界面，找到对应隧道，点击右侧三个点，再点击Configure（配置）；</summary>
+<h2>3.1.2 拷贝 Argo token</h2>
+<details><summary>回到 Tunnels 界面，找到对应隧道，点击右侧三个点，再点击 Configure（配置）；</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/e158c1c1-e089-4439-8bf1-f350ed240fb9"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/e158c1c1-e089-4439-8bf1-f350ed240fb9" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
-<details><summary>点击复制，其中ey开头的部分就是Argo token；</summary>
+<details><summary>点击复制，其中 ey 开头的部分就是 Argo token；</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
 <h2>3.2 安装pm2</h2>
-<p>ssh连接上serv00服务器，可以使用pm2，pm2是保活用的，安装命令如下：</p>
+<p>ssh 连接上 serv00 服务器，可以使用 pm2，pm2 是保活用的（<strong>由于会 serv00 会不定时重启，还需添加定时任务才能实现保活，见 5.2</strong>），安装命令如下：</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh<span class="pl-pds">)</span></span></pre></div>
-<h2>3.3 创建cloudflared的工作目录</h2>
+<h2>3.3 创建 cloudflared 的工作目录</h2>
 <div class="highlight highlight-source-shell"><pre class="notranslate">mkdir -p <span class="pl-k">~</span>/domains/cloudflared <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains/cloudflared</pre></div>
-<h2>3.4 下载cloudflared</h2>
+<h2>3.4 下载 cloudflared</h2>
 <div class="highlight highlight-source-shell"><pre class="notranslate">wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> 7z x cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> rm cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> mv -f ./temp/<span class="pl-k">*</span> ./cloudflared <span class="pl-k">&amp;&amp;</span> rm -rf temp</pre></div>
 <h2>3.4 测试运行 cloudflared</h2>
-<p><strong>tips：将<code class="notranslate">&lt;Argo token&gt;</code>换成自己的Argo token</strong></p>
+<p><strong>tips：将<code class="notranslate">&lt;Argo token&gt;</code>换成自己的 Argo token</strong>；</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
-<h2>3.5 pm2保活cloudflared</h2>
-<p>先按<code class="notranslate">Ctrl+C</code>，停止运行cloudflared；使用以下命令运行cloudflared（<strong>同理，<code class="notranslate">&lt;Argo token&gt;</code>换成自己的Argo token</strong>）。</p>
+<h2>3.5 pm2保活 cloudflared</h2>
+<p>先按<code class="notranslate">Ctrl+C</code>，停止运行 cloudflared；使用以下命令运行 cloudflared（<strong>同理，<code class="notranslate">&lt;Argo token&gt;</code>换成自己的Argo token</strong>）。</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
-<p><strong>tip：提示”pm2 Command not found“，解决方法：断开SSH连接，再重新连接。</strong></p>
-<h1>4. 安装Uptime-Kuma</h1>
+<p><strong>tip：提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。</strong></p>
+<h1>4. 安装 Uptime-Kuma</h1>
 <div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 下载 v1.22.1 版本的源代码</span>
 <span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains <span class="pl-k">&amp;&amp;</span> wget https://github.com/louislam/uptime-kuma/archive/refs/tags/1.22.1.zip <span class="pl-k">&amp;&amp;</span> unzip 1.22.1.zip <span class="pl-k">&amp;&amp;</span> rm -rf public_html <span class="pl-k">&amp;&amp;</span> mv -f uptime-kuma-1.22.1 public_html <span class="pl-k">&amp;&amp;</span> rm -f 1.22.1.zip <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> public_html
 
 <span class="pl-c"><span class="pl-c">#</span> 设置生产模式</span>
 npm ci --production
 
-<span class="pl-c"><span class="pl-c">#</span> 下载dist文件</span>
+<span class="pl-c"><span class="pl-c">#</span> 下载 dist 文件</span>
 wget https://github.com/louislam/uptime-kuma/releases/download/1.22.1/dist.tar.gz <span class="pl-k">&amp;&amp;</span> tar -xzvf dist.tar.gz <span class="pl-k">&amp;&amp;</span> rm dist.tar.gz
 
 <span class="pl-c"><span class="pl-c">#</span> 安装依赖（无视报错）</span>
 npm install
 
-<span class="pl-c"><span class="pl-c">#</span> 测试运行，PORT改为自己部署Uptime-Kuma的端口</span>
+<span class="pl-c"><span class="pl-c">#</span> 测试运行，PORT 改为自己部署 Uptime-Kuma 的端口</span>
 node server/server.js --port=PORT</pre></div>
 <h1>5. serv00的续期和自启</h1>
 <h2>5.1 续期</h2>
 <ul>
-<li>创建一个自动SSH连接自己serv00服务器的脚本，每隔一段时间执行一次，可以实现自动续期。</li>
+<li>创建一个自动 SSH 连接自己 serv00 服务器的脚本，每隔一段时间执行一次，可以实现自动续期。</li>
 </ul>
 <ol>
-<li>使用以下命令新建一个auto_renew.sh（自动续期）脚本；</li>
+<li>使用以下命令新建一个 auto_renew.sh（自动续期）脚本；</li>
 </ol>
 <div class="highlight highlight-source-shell"><pre class="notranslate">cat <span class="pl-k">&gt;</span> auto_renew.sh <span class="pl-s"><span class="pl-k">&lt;&lt;</span> <span class="pl-k">EOF</span></span>
 <span class="pl-s">#!/bin/bash</span>
@@ -176,15 +176,15 @@ node server/server.js --port=PORT</pre></div>
 <span class="pl-s">sshpass -p '密码' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -tt 用户名@地址 "exit" &amp;</span>
 <span class="pl-s"><span class="pl-k">EOF</span></span></pre></div>
 <ol start="2">
-<li>给auto_renew.sh添加可执行权限；</li>
+<li>给 auto_renew.sh 添加可执行权限；</li>
 </ol>
 <div class="highlight highlight-source-shell"><pre class="notranslate">chmod +x auto_renew.sh</pre></div>
 <ol start="3">
 <li>
-<p>点击面板左侧的Cron jobs（定时任务） ，找到 Add cron job （添加任务）；</p>
+<p>点击面板左侧的 Cron jobs（定时任务） ，找到 Add cron job （添加任务）；</p>
 </li>
 <li>
-<p><strong>Specify time</strong> 选择 <strong>Monthly</strong>，<strong>Form type</strong> 选择 <strong>Advanced</strong>，<strong>Command</strong> 写<strong>auto_renew.sh 脚本文件的绝对路径</strong>，如 <code class="notranslate">/home/用户名/domains/public_html/auto_renew.sh 2&gt;/dev/null 2&gt;&amp;1</code> ；</p>
+<p><strong>Specify time</strong> 选择 <strong>Monthly</strong>，<strong>Form type</strong> 选择 <strong>Advanced</strong>，<strong>Command</strong> 写 <strong>auto_renew.sh 脚本文件的绝对路径</strong>，如 <code class="notranslate">/home/用户名/domains/public_html/auto_renew.sh 2&gt;/dev/null 2&gt;&amp;1</code> ；</p>
  <details><summary>操作图示</summary>
  <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/7c6568f9-f445-4a94-9c53-9edc2dc11484"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/7c6568f9-f445-4a94-9c53-9edc2dc11484" alt="image" style="max-width: 100%;"></a></p>
@@ -197,10 +197,10 @@ node server/server.js --port=PORT</pre></div>
 </ol>
 <h2>5.2  任务自启动</h2>
 <ul>
-<li>使用 pm2 保活任务后，pm2 会将当前任务添加到任务列表。每次serv00不定时重启后，只要启动 pm2 任务列表中的任务，即可实现任务自启动。</li>
+<li>使用 pm2 保活任务后，pm2 会将当前任务添加到任务列表。每次 serv00 不定时重启后，只要启动 pm2 任务列表中的任务，即可实现任务自启动。</li>
 </ul>
 <ol>
-<li>Cron jobs -Add cron job，<strong>Specify time</strong> 选择 <strong>After reboot</strong>（重启后运行），<strong>Form type</strong> 选择 <strong>Advanced</strong>，<strong>Command</strong> 写：</li>
+<li>Cron jobs - Add cron job，<strong>Specify time</strong> 选择 <strong>After reboot</strong>（重启后运行），<strong>Form type</strong> 选择 <strong>Advanced</strong>，<strong>Command</strong> 写：</li>
 </ol>
 <div class="highlight highlight-source-shell"><pre class="notranslate">/home/你的用户名/.npm-global/bin/pm2 resurrect <span class="pl-k">2&gt;</span>/dev/null <span class="pl-k">2&gt;&amp;1</span> <span class="pl-k">&amp;&amp;</span> /home/你的用户名/.npm-global/bin/pm2 restart all <span class="pl-k">2&gt;</span>/dev/null <span class="pl-k">2&gt;&amp;1</span></pre></div>
 <ol start="2">
