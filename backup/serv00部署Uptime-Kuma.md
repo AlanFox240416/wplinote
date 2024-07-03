@@ -152,7 +152,7 @@ chmod +x auto_renew.sh
     </p>
     </details> 
 
-6. **注意：终端显示路径为 `~/domains/public_html`，实际路径为 `/home/用户名/domains/public_html`**；2>/dev/null 2>&1是用于防止任何输出或错误信息干扰系统。
+- **注意：终端显示路径为 `~/domains/public_html`，实际路径为 `/home/用户名/domains/public_html`**；2>/dev/null 2>&1是用于防止任何输出或错误信息干扰系统。
 
 ## 5.2  任务自启动
 
@@ -165,4 +165,5 @@ chmod +x auto_renew.sh
 ```shell
 pm2 save
 ``` 
-2. 每次给 pm2 添加保活任务后，记得使用以上命令保存 pm2 的任务列表。
+
+- 注意：每次**使用 pm2 添加新的保活任务**后，记得**使用以上命令保存 pm2 的任务列表**。
