@@ -209,7 +209,11 @@ node server/server.js --port=PORT</pre></div>
 <div class="highlight highlight-source-shell"><pre class="notranslate">pm2 save</pre></div>
 <ul>
 <li>注意：每次<strong>使用 pm2 添加新的保活任务</strong>后，记得<strong>使用以上命令保存 pm2 的任务列表</strong>。</li>
-</ul></div>
+</ul>
+<h1>6. 补充....</h1>
+<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> pm2 保活 alist</span>
+pm2 start ./alist -- server
+</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
