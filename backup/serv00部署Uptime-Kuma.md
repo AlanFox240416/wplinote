@@ -119,3 +119,50 @@ npm install
 # 测试运行，PORT改为自己部署Uptime-Kuma的端口
 node server/server.js --port=PORT
 ```
+
+# 5. serv00的续期和自启
+## 5.1 续期
+
+- 创建一个自动SSH连接自己serv00服务器的脚本，每隔一段时间执行一次，可以实现自动续期。
+
+1. 使用以下命令新建一个auto_renew.sh（自动续期）脚本；
+```shell
+cat > auto_renew.sh << EOF
+#!/bin/bash
+
+sshpass -p '密码' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -tt 用户名@地址 "exit" &
+EOF
+``` 
+
+2. 给auto_renew.sh添加可执行权限；
+```shell
+chmod +x auto_renew.sh
+``` 
+
+3.  点击面板左侧的Cron jobs（定时任务） ，找到 Add cron job （添加任务）；
+4. **Specify time** 选择 **Monthly**，**Form type** 选择 **Advanced**，**Command** 写**auto_renew.sh 脚本文件的绝对路径**，如 `/home/用户名/domains/public_html/auto_renew.sh 2>/dev/null 2>&1` ；
+
+    <details><summary>操作图示</summary>
+    <p>
+    
+    
+    ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/7c6568f9-f445-4a94-9c53-9edc2dc11484)
+
+    
+    </p>
+    </details> 
+
+6. **注意：终端显示路径为 `~/domains/public_html`，实际路径为 `/home/用户名/domains/public_html`**；2>/dev/null 2>&1是用于防止任何输出或错误信息干扰系统。
+
+## 5.2  任务自启动
+
+- 使用 pm2 保活任务后，pm2 会将当前任务添加到任务列表。每次serv00不定时重启后，只要启动 pm2 任务列表中的任务，即可实现任务自启动。
+1. Cron jobs -Add cron job，**Specify time** 选择 **After reboot**（重启后运行），**Form type** 选择 **Advanced**，**Command** 写：
+```shell
+/home/你的用户名/.npm-global/bin/pm2 resurrect 2>/dev/null 2>&1 && /home/你的用户名/.npm-global/bin/pm2 restart all 2>/dev/null 2>&1
+``` 
+2. 添加完任务之后，回到 SSH 窗口保存 pm2 的当前任务列表，使用以下命令：
+```shell
+pm2 save
+``` 
+2. 每次给 pm2 添加保活任务后，记得使用以上命令保存 pm2 的任务列表。

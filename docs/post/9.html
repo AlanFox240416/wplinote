@@ -161,7 +161,55 @@ wget https://github.com/louislam/uptime-kuma/releases/download/1.22.1/dist.tar.g
 npm install
 
 <span class="pl-c"><span class="pl-c">#</span> 测试运行，PORT改为自己部署Uptime-Kuma的端口</span>
-node server/server.js --port=PORT</pre></div></div>
+node server/server.js --port=PORT</pre></div>
+<h1>5. serv00的续期和自启</h1>
+<h2>5.1 续期</h2>
+<ul>
+<li>创建一个自动SSH连接自己serv00服务器的脚本，每隔一段时间执行一次，可以实现自动续期。</li>
+</ul>
+<ol>
+<li>使用以下命令新建一个auto_renew.sh（自动续期）脚本；</li>
+</ol>
+<div class="highlight highlight-source-shell"><pre class="notranslate">cat <span class="pl-k">&gt;</span> auto_renew.sh <span class="pl-s"><span class="pl-k">&lt;&lt;</span> <span class="pl-k">EOF</span></span>
+<span class="pl-s">#!/bin/bash</span>
+<span class="pl-s"></span>
+<span class="pl-s">sshpass -p '密码' ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -tt 用户名@地址 "exit" &amp;</span>
+<span class="pl-s"><span class="pl-k">EOF</span></span></pre></div>
+<ol start="2">
+<li>给auto_renew.sh添加可执行权限；</li>
+</ol>
+<div class="highlight highlight-source-shell"><pre class="notranslate">chmod +x auto_renew.sh</pre></div>
+<ol start="3">
+<li>
+<p>点击面板左侧的Cron jobs（定时任务） ，找到 Add cron job （添加任务）；</p>
+</li>
+<li>
+<p><strong>Specify time</strong> 选择 <strong>Monthly</strong>，<strong>Form type</strong> 选择 <strong>Advanced</strong>，<strong>Command</strong> 写<strong>auto_renew.sh 脚本文件的绝对路径</strong>，如 <code class="notranslate">/home/用户名/domains/public_html/auto_renew.sh 2&gt;/dev/null 2&gt;&amp;1</code> ；</p>
+ <details><summary>操作图示</summary>
+ <p>
+</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/7c6568f9-f445-4a94-9c53-9edc2dc11484"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/7c6568f9-f445-4a94-9c53-9edc2dc11484" alt="image" style="max-width: 100%;"></a></p>
+ <p></p>
+ </details> 
+</li>
+<li>
+<p><strong>注意：终端显示路径为 <code class="notranslate">~/domains/public_html</code>，实际路径为 <code class="notranslate">/home/用户名/domains/public_html</code></strong>；2&gt;/dev/null 2&gt;&amp;1是用于防止任何输出或错误信息干扰系统。</p>
+</li>
+</ol>
+<h2>5.2  任务自启动</h2>
+<ul>
+<li>使用 pm2 保活任务后，pm2 会将当前任务添加到任务列表。每次serv00不定时重启后，只要启动 pm2 任务列表中的任务，即可实现任务自启动。</li>
+</ul>
+<ol>
+<li>Cron jobs -Add cron job，<strong>Specify time</strong> 选择 <strong>After reboot</strong>（重启后运行），<strong>Form type</strong> 选择 <strong>Advanced</strong>，<strong>Command</strong> 写：</li>
+</ol>
+<div class="highlight highlight-source-shell"><pre class="notranslate">/home/你的用户名/.npm-global/bin/pm2 resurrect <span class="pl-k">2&gt;</span>/dev/null <span class="pl-k">2&gt;&amp;1</span> <span class="pl-k">&amp;&amp;</span> /home/你的用户名/.npm-global/bin/pm2 restart all <span class="pl-k">2&gt;</span>/dev/null <span class="pl-k">2&gt;&amp;1</span></pre></div>
+<ol start="2">
+<li>添加完任务之后，回到 SSH 窗口保存 pm2 的当前任务列表，使用以下命令：</li>
+</ol>
+<div class="highlight highlight-source-shell"><pre class="notranslate">pm2 save</pre></div>
+<ol start="2">
+<li>每次给 pm2 添加保活任务后，记得使用以上命令保存 pm2 的任务列表。</li>
+</ol></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
