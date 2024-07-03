@@ -152,7 +152,7 @@ chmod +x auto_renew.sh
     </p>
     </details> 
 
-- **注意：终端显示路径为 `~/domains/public_html`，实际路径为 `/home/用户名/domains/public_html`**；2>/dev/null 2>&1是用于防止任何输出或错误信息干扰系统。
+- **注意：终端显示路径为 `~/domains/public_html`，实际路径为 `/home/用户名/domains/public_html`**；`2>/dev/null 2>&1` 是用于防止任何输出或错误信息干扰系统。
 
 ## 5.2  任务自启动
 
