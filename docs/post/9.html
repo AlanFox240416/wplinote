@@ -92,64 +92,6 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/bf7fc9a3-19d9-4301-a746-20369144bb15"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/bf7fc9a3-19d9-4301-a746-20369144bb15" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
-<h1>3. Cloudflare Tunnel 的安装及配置</h1>
-<h2>3.1 获取 Argo token</h2>
-<h3>3.1.1 创建隧道</h3>
-<ol>
-<li>
-<p>点击首页左侧菜单栏中 Zero Trust；</p>
-</li>
-<li>
-<p>进入 Zero Trust 控制台后，点击 Networks，再点击 Tunnels，然后点击 Create a tunnel；</p>
- <details><summary>操作图示</summary>
- <p>
-</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/49729b0b-132e-4840-8f5c-340a9500d068"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/49729b0b-132e-4840-8f5c-340a9500d068" alt="image" style="max-width: 100%;"></a></p>
- <p></p>
- </details> 
-</li>
-<li>
-<p>Select tunnel type（选择隧道类型）：保证默认，点击 Next；</p>
-</li>
-<li>
-<p>Name your tunnel（命名您的隧道）：在 Tunnel name 输入框中输入隧道名，点击 Save tunnel；</p>
-</li>
-<li>
-<p>Install and run connectors（安装并运行连接器）：点击 Next；</p>
-</li>
-<li>
-<p>Route tunne（路由隧道）：在 Public Hostnames（公共主机名）界面，按下图红圈内的例子输入，然后点击右下角的 Save tunnel；</p>
- <details><summary>操作图示</summary>
- <p>
-</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/1be626e3-6470-4446-bca1-cdfcf200bf60"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/1be626e3-6470-4446-bca1-cdfcf200bf60" alt="image" style="max-width: 100%;"></a></p>
- <p></p>
- </details> 
-</li>
-</ol>
-<h2>3.1.2 拷贝 Argo token</h2>
-<details><summary>回到 Tunnels 界面，找到对应隧道，点击右侧三个点，再点击 Configure（配置）；</summary>
-<p>
-</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/e158c1c1-e089-4439-8bf1-f350ed240fb9"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/e158c1c1-e089-4439-8bf1-f350ed240fb9" alt="image" style="max-width: 100%;"></a></p>
-<p></p>
-</details> 
-<details><summary>点击复制，其中 ey 开头的部分就是 Argo token；</summary>
-<p>
-</p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0" alt="image" style="max-width: 100%;"></a></p>
-<p></p>
-</details> 
-<h2>3.2 安装pm2</h2>
-<p>ssh 连接上 serv00 服务器，可以使用 pm2，pm2 是保活用的（<strong>由于会 serv00 会不定时重启，还需添加定时任务才能实现保活，见 5.2</strong>），安装命令如下：</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh<span class="pl-pds">)</span></span></pre></div>
-<h2>3.3 创建 cloudflared 的工作目录</h2>
-<div class="highlight highlight-source-shell"><pre class="notranslate">mkdir -p <span class="pl-k">~</span>/domains/cloudflared <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains/cloudflared</pre></div>
-<h2>3.4 下载 cloudflared</h2>
-<div class="highlight highlight-source-shell"><pre class="notranslate">wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> 7z x cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> rm cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> mv -f ./temp/<span class="pl-k">*</span> ./cloudflared <span class="pl-k">&amp;&amp;</span> rm -rf temp</pre></div>
-<h2>3.4 测试运行 cloudflared</h2>
-<p><strong>tips：将<code class="notranslate">&lt;Argo token&gt;</code>换成自己的 Argo token</strong>；</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
-<h2>3.5 pm2保活 cloudflared</h2>
-<p>先按<code class="notranslate">Ctrl+C</code>，停止运行 cloudflared；使用以下命令运行 cloudflared（<strong>同理，<code class="notranslate">&lt;Argo token&gt;</code>换成自己的Argo token</strong>）。</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
-<p><strong>tip：提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。</strong></p>
 <h1>4. 安装 Uptime-Kuma</h1>
 <div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 下载 v1.22.1 版本的源代码</span>
 <span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains <span class="pl-k">&amp;&amp;</span> wget https://github.com/louislam/uptime-kuma/archive/refs/tags/1.22.1.zip <span class="pl-k">&amp;&amp;</span> unzip 1.22.1.zip <span class="pl-k">&amp;&amp;</span> rm -rf public_html <span class="pl-k">&amp;&amp;</span> mv -f uptime-kuma-1.22.1 public_html <span class="pl-k">&amp;&amp;</span> rm -f 1.22.1.zip <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> public_html
@@ -166,8 +108,12 @@ npm install
 <span class="pl-c"><span class="pl-c">#</span> 测试运行，PORT 改为自己部署 Uptime-Kuma 的端口</span>
 node server/server.js --port=PORT
 
+<span class="pl-c"><span class="pl-c">#</span> 安装 pm2</span>
+bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh<span class="pl-pds">)</span></span>
+
 <span class="pl-c"><span class="pl-c">#</span> pm2 保活 Uptime-Kuma，PORT 改为自己部署 Uptime-Kuma 的端口</span>
 pm2 start server/server.js --name uptime-kuma -- --port=PORT</pre></div>
+<p><strong>tip：第一次使用pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。</strong></p>
 <h1>5. serv00的续期和自启</h1>
 <h2>5.1 续期</h2>
 <ul>
