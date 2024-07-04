@@ -44,7 +44,7 @@
 </details> 
 
 ## 2. 安装pm2
-ssh 连接上 serv00 服务器，可以使用 pm2，pm2 是保活用的（**由于会 serv00 会不定时重启，还需添加定时任务才能实现保活，见 5.2**），安装命令如下：
+pm2 是保活用的（**由于会 serv00 会不定时重启，还需添加定时任务才能实现保活，详见[serv00 部署 Uptime-Kuma 5.2](https://note.wrb.me/post/9.html) **），ssh 连接上 serv00 服务器，安装命令如下：
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh)
 ```
@@ -70,4 +70,4 @@ wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z && 7z
 ```shell
 pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <Argo token>
 ```
-**tip：第一次安装pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。**
+**tip：第一次使用pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。**
