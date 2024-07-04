@@ -32,7 +32,7 @@
     </p>
     </details> 
 
-2. 查看serv00 的主机 IP：**WWW websites** - **Manage SSL certificates**，可以看到两个 IP，任选一个；
+2. 查看 serv00 的主机 IP：**WWW websites** - **Manage SSL certificates**，可以看到两个 IP，任选一个；
     <details><summary>操作图示</summary>
     <p>
     
@@ -41,7 +41,7 @@
     </p>
     </details> 
 
-4. 进入[Cloudflare](https://dash.cloudflare.com/) ，添加 `example.com` 的DNS记录，A 记录、name 是 `status` （**与刚刚输入的域名保持一致**）、指向 **serv00 的主机 IP**、打开**小黄云加速** 。
+4. 进入 [Cloudflare](https://dash.cloudflare.com/) ，添加 `example.com` 的DNS记录，A 记录、name 是 `status` （**与刚刚输入的域名保持一致**）、指向 **serv00 的主机 IP**、打开**小黄云加速** 。
 
     <details><summary>操作图示</summary>
     <p>
