@@ -172,8 +172,30 @@ pm2 save
 - 注意：每次**使用 pm2 添加新的保活任务**后，记得**使用以上命令保存 pm2 的任务列表**。
 
 # 6. 补充....
+## 6.1 保活命令
 ```shell
 # pm2 保活 alist
 pm2 start ./alist -- server
-
 ``` 
+
+## 6.2 域名邮箱
+
+1. 点击面板左侧的 **E-mail**，找到 **十Add new e-mail**，输入 **E-mail address**（如`admin@serv0704.serv00.net`） 、**Passwords**，点击 **十Add**，如图示；
+
+    <details><summary>操作图示</summary>
+    <p>
+    
+    ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/a19c0390-68ed-4497-bd4d-7329f5fdf661)
+    
+    </p>
+    </details> 
+
+2. 添加邮箱成功后，点击 **Open web client** （打开邮箱网页端），在登陆界面输入邮箱地址和密码，登陆。
+
+    <details><summary>操作图示</summary>
+    <p>
+    
+    ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/1f3b2e61-af2e-47b8-9ea7-b488c3bf4bb1)
+    
+    </p>
+    </details> 
