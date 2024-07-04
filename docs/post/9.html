@@ -71,20 +71,20 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><h2>使用 serv00 部署 Uptime-Kuma 的教程在 <a href="https://blog.rappit.site/2024/01/27/serv00_logs/" rel="nofollow">Saika‘blog</a> 中已有说明，近期 serv00 自定义域名 <code class="notranslate">xxx.username.serv00.net</code> 的证书申请困难（该域名的每周证书限额已用完），这里记录一下部署的过程。</h2>
-<h1>1. 启用运行权限</h1>
+<h1>1 启用运行权限</h1>
 <p><strong>tips：第一次登陆，先点击右上角 Change language，将语言设置为 English</strong>，默认是波兰语。</p>
 <details><summary>点击 Additional services 选项卡，找到 Run your own applications，设置为 Enabled。</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/a6640525-b3bc-40f5-90c1-2da04e9e35b5"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/a6640525-b3bc-40f5-90c1-2da04e9e35b5" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
-<h1>2. 放行端口</h1>
+<h1>2 放行端口</h1>
 <details><summary>点击 Port reservation，找到 Add port，输入要放行的端口号，点击 Add。</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/3e0073db-7d66-4da8-8e27-2825fdcb97ff"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/3e0073db-7d66-4da8-8e27-2825fdcb97ff" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
-<h1>3. 添加站点</h1>
+<h1>3 添加站点</h1>
 <ol>
 <li>
 <p>点击 <strong>WWW websites</strong>，找到 <strong>Add new website</strong>，输入<strong>域名</strong>（如 <code class="notranslate">status.example.com</code>），点击 <strong>Advanced settings</strong>，选择 <strong>Website type</strong> 为 <strong>Proxy</strong>，<strong>Proxy port</strong> 设置为刚刚放行的端口；</p>
@@ -111,7 +111,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
  </details> 
 </li>
 </ol>
-<h1>4. 安装 Uptime-Kuma</h1>
+<h1>4 安装 Uptime-Kuma</h1>
 <div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 下载 v1.22.1 版本的源代码</span>
 <span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains <span class="pl-k">&amp;&amp;</span> wget https://github.com/louislam/uptime-kuma/archive/refs/tags/1.22.1.zip <span class="pl-k">&amp;&amp;</span> unzip 1.22.1.zip <span class="pl-k">&amp;&amp;</span> rm -rf public_html <span class="pl-k">&amp;&amp;</span> mv -f uptime-kuma-1.22.1 public_html <span class="pl-k">&amp;&amp;</span> rm -f 1.22.1.zip <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> public_html
 
@@ -133,7 +133,7 @@ bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -s https://raw.git
 <span class="pl-c"><span class="pl-c">#</span> pm2 保活 Uptime-Kuma，PORT 改为自己部署 Uptime-Kuma 的端口</span>
 pm2 start server/server.js --name uptime-kuma -- --port=PORT</pre></div>
 <p><strong>tip：第一次使用pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。</strong></p>
-<h1>5. serv00的续期和自启</h1>
+<h1>5 serv00的续期和自启</h1>
 <h2>5.1 续期</h2>
 <ul>
 <li>创建一个自动 SSH 连接自己 serv00 服务器的脚本，每隔一段时间执行一次，可以实现自动续期。</li>
@@ -181,7 +181,7 @@ pm2 start server/server.js --name uptime-kuma -- --port=PORT</pre></div>
 <ul>
 <li>注意：每次<strong>使用 pm2 添加新的保活任务</strong>后，记得<strong>使用以上命令保存 pm2 的任务列表</strong>。</li>
 </ul>
-<h1>6. 补充....</h1>
+<h1>6 补充....</h1>
 <h2>6.1 保活命令</h2>
 <div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> pm2 保活 alist</span>
 pm2 start ./alist -- server</pre></div>

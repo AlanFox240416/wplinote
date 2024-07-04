@@ -1,5 +1,5 @@
 ## 使用 serv00 部署 Uptime-Kuma 的教程在 [Saika‘blog](https://blog.rappit.site/2024/01/27/serv00_logs/) 中已有说明，近期 serv00 自定义域名 `xxx.username.serv00.net` 的证书申请困难（该域名的每周证书限额已用完），这里记录一下部署的过程。
-# 1. 启用运行权限
+# 1 启用运行权限
 
 **tips：第一次登陆，先点击右上角 Change language，将语言设置为 English**，默认是波兰语。
 
@@ -11,7 +11,7 @@
 </p>
 </details> 
 
-# 2. 放行端口
+# 2 放行端口
 <details><summary>点击 Port reservation，找到 Add port，输入要放行的端口号，点击 Add。</summary>
 <p>
 
@@ -20,7 +20,7 @@
 </p>
 </details> 
 
-# 3. 添加站点
+# 3 添加站点
 
 1. 点击 **WWW websites**，找到 **Add new website**，输入**域名**（如 `status.example.com`），点击 **Advanced settings**，选择 **Website type** 为 **Proxy**，**Proxy port** 设置为刚刚放行的端口；
 
@@ -51,7 +51,7 @@
     </p>
     </details> 
 
-# 4. 安装 Uptime-Kuma
+# 4 安装 Uptime-Kuma
 
 ```shell
 # 下载 v1.22.1 版本的源代码
@@ -77,7 +77,7 @@ pm2 start server/server.js --name uptime-kuma -- --port=PORT
 ```
 **tip：第一次使用pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。**
 
-# 5. serv00的续期和自启
+# 5 serv00的续期和自启
 ## 5.1 续期
 
 - 创建一个自动 SSH 连接自己 serv00 服务器的脚本，每隔一段时间执行一次，可以实现自动续期。
@@ -125,7 +125,7 @@ pm2 save
 
 - 注意：每次**使用 pm2 添加新的保活任务**后，记得**使用以上命令保存 pm2 的任务列表**。
 
-# 6. 补充....
+# 6 补充....
 ## 6.1 保活命令
 ```shell
 # pm2 保活 alist
