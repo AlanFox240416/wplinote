@@ -72,7 +72,18 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><h2>在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。</h2>
 <h2>1.  获取 Argo token</h2>
-<h3>1.1 创建隧道</h3>
+<h3>1.1 添加DNS记录</h3>
+<p>添加 <code class="notranslate">example.com</code> 的DNS记录，A 记录、name 是 <code class="notranslate">xxx</code> （<strong>与下面隧道绑定的域名保持一致</strong>）、指向 <strong>serv00 的主机 IP</strong>、打开<strong>小黄云加速</strong> 。</p>
+<pre class="notranslate"><code class="notranslate">&lt;details&gt;&lt;summary&gt;操作图示&lt;/summary&gt;
+&lt;p&gt;
+
+![image](https://github.com/AlanFox240416/wplinote/assets/167155570/1abd7c15-2e4b-456e-a8d8-1ac0dac4ea59)
+
+&lt;/p&gt;
+&lt;/details&gt; 
+</code></pre>
+<p>查看serv00 的主机 IP 见  <a href="https://note.wrb.me/post/9.html" rel="nofollow">serv00部署Uptime-Kuma 3</a>。</p>
+<h3>1.2 创建隧道</h3>
 <ol>
 <li>
 <p>点击首页左侧菜单栏中 Zero Trust；</p>

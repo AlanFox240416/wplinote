@@ -1,8 +1,20 @@
 ## 在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。
 
 ## 1.  获取 Argo token
+### 1.1 添加DNS记录
+添加 `example.com` 的DNS记录，A 记录、name 是 `xxx` （**与下面隧道绑定的域名保持一致**）、指向 **serv00 的主机 IP**、打开**小黄云加速** 。
 
-### 1.1 创建隧道
+    <details><summary>操作图示</summary>
+    <p>
+    
+    ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/1abd7c15-2e4b-456e-a8d8-1ac0dac4ea59)
+    
+    </p>
+    </details> 
+ 
+查看serv00 的主机 IP 见  [serv00部署Uptime-Kuma 3](https://note.wrb.me/post/9.html)。
+
+### 1.2 创建隧道
 1. 点击首页左侧菜单栏中 Zero Trust；
 2. 进入 Zero Trust 控制台后，点击 Networks，再点击 Tunnels，然后点击 Create a tunnel；
     <details><summary>操作图示</summary>
