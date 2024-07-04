@@ -22,7 +22,7 @@
 
 # 3. 添加站点
 
-1. 点击 **WWW websites**，找到 **Add new website**，输入**域名**（如 `status.example.com`），点击 **Advanced settings**，选择 **Website type** 为 **Proxy**，**Proxy port** 设置为刚刚放行的端口。
+1. 点击 **WWW websites**，找到 **Add new website**，输入**域名**（如 `status.example.com`），点击 **Advanced settings**，选择 **Website type** 为 **Proxy**，**Proxy port** 设置为刚刚放行的端口；
 
     <details><summary>操作图示</summary>
     <p>
@@ -32,12 +32,21 @@
     </p>
     </details> 
 
-2. 进入[Cloudflare](https://dash.cloudflare.com/) ，添加 `example.com` 的DNS记录，A 记录、name 是 `status` （**与刚刚输入的域名保持一致**）、指向 `example.com`、打开**小黄云加速** 。
+2. 查看serv00 的主机 IP：**WWW websites** - **Manage SSL certificates**，可以看到两个 IP，任选一个；
+    <details><summary>操作图示</summary>
+    <p>
+    
+    ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/1726e8c3-2c83-461b-9b2e-8dbf03bcb777)
+    
+    </p>
+    </details> 
+
+4. 进入[Cloudflare](https://dash.cloudflare.com/) ，添加 `example.com` 的DNS记录，A 记录、name 是 `status` （**与刚刚输入的域名保持一致**）、指向 **serv00 的主机 IP**、打开**小黄云加速** 。
 
     <details><summary>操作图示</summary>
     <p>
     
-    ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/8b3ae824-a019-4c54-a024-58b904201620)
+    ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/6873e3e0-ff78-458b-b939-43a1692bb5ff)
     
     </p>
     </details> 
@@ -88,7 +97,7 @@ chmod +x auto_renew.sh
 ``` 
 
 3.  点击面板左侧的 Cron jobs（定时任务） ，找到 Add cron job （添加任务）；
-4. **Specify time** 选择 **Monthly**，**Form type** 选择 **Advanced**，**Command** 写 **auto_renew.sh 脚本文件的绝对路径（可以使用 `pwd` 命令查看）**，如 `/home/用户名/domains/public_html/auto_renew.sh 2>/dev/null 2>&1` ；
+5. **Specify time** 选择 **Monthly**，**Form type** 选择 **Advanced**，**Command** 写 **auto_renew.sh 脚本文件的绝对路径（可以使用 `pwd` 命令查看）**，如 `/home/用户名/domains/public_html/auto_renew.sh 2>/dev/null 2>&1` ；
 
     <details><summary>操作图示</summary>
     <p>
