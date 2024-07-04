@@ -1,4 +1,4 @@
-## 在serv00上部署Uptime-Kuma时，使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。
+## 在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。
 
 ## 1.  获取 Argo token
 
@@ -65,9 +65,9 @@ wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z && 7z
 ./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <Argo token>
 ```
 
-## 3.5 pm2保活 cloudflared
+## 6. pm2保活 cloudflared
 先按`Ctrl+C`，停止运行 cloudflared；使用以下命令运行 cloudflared（**同理，`<Argo token>`换成自己的Argo token**）。
 ```shell
 pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <Argo token>
 ```
-**tip：提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。**
+**tip：第一次安装pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。**

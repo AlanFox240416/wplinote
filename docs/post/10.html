@@ -9,9 +9,9 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="## 在serv00上部署Uptime-Kuma时，使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。">
+<meta name="description" content="## 在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。">
 <meta property="og:title" content="Cloudfalre Tunnel的使用和配置">
-<meta property="og:description" content="## 在serv00上部署Uptime-Kuma时，使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。">
+<meta property="og:description" content="## 在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://note.wrb.me/post/10.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/167155570?s=400&u=64c8b9d7116d3df20cfa190ac7e6c64ff65f37b4&v=4">
@@ -70,7 +70,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h2>在serv00上部署Uptime-Kuma时，使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。</h2>
+<div class="markdown-body" id="postBody"><h2>在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。</h2>
 <h2>1.  获取 Argo token</h2>
 <h3>1.1 创建隧道</h3>
 <ol>
@@ -124,10 +124,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <h2>5.  测试运行 cloudflared</h2>
 <p><strong>tips：将<code class="notranslate">&lt;Argo token&gt;</code>换成自己的 Argo token</strong>；</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
-<h2>3.5 pm2保活 cloudflared</h2>
+<h2>6. pm2保活 cloudflared</h2>
 <p>先按<code class="notranslate">Ctrl+C</code>，停止运行 cloudflared；使用以下命令运行 cloudflared（<strong>同理，<code class="notranslate">&lt;Argo token&gt;</code>换成自己的Argo token</strong>）。</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
-<p><strong>tip：提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。</strong></p></div>
+<p><strong>tip：第一次安装pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。</strong></p></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
