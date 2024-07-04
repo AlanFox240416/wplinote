@@ -1,7 +1,7 @@
 ## 在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。
 
 ## 1.  获取 Argo token
-### 1.1 添加DNS记录
+### 1.1 添加DNS记录（**如果只是创建隧道，不绑定域名，可以跳过这一步**）
 添加 `example.com` 的DNS记录，A 记录、name 是 `xxx` （**与下面隧道绑定的域名保持一致**）、指向 **serv00 的主机 IP**、打开**小黄云加速** 。
 
     <details><summary>操作图示</summary>
@@ -28,7 +28,7 @@
 1. Select tunnel type（选择隧道类型）：保证默认，点击 Next；
 2. Name your tunnel（命名您的隧道）：在 Tunnel name 输入框中输入隧道名，点击 Save tunnel；
 3. Install and run connectors（安装并运行连接器）：点击 Next；
-4. Route tunne（路由隧道）：在 Public Hostnames（添加域名）界面，按下图红圈内的例子输入，然后点击右下角的 Save tunnel；
+4. Route tunne（路由隧道）：（**如果只是创建隧道，不绑定域名，可以跳过这一步**）在 Public Hostnames（添加域名）界面，按下图红圈内的例子输入，然后点击右下角的 Save tunnel；
 
     <details><summary>操作图示</summary>
     <p>
@@ -53,7 +53,7 @@
     </p>
     </details> 
 
-## 1.2 拷贝 Argo token
+### 1.3 拷贝 Argo token
 <details><summary>回到 Tunnels 界面，找到对应隧道，点击右侧三个点，再点击 Configure（配置）；</summary>
 <p>
 

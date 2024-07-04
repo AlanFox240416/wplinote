@@ -72,7 +72,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><h2>在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。</h2>
 <h2>1.  获取 Argo token</h2>
-<h3>1.1 添加DNS记录</h3>
+<h3>1.1 添加DNS记录（<strong>如果只是创建隧道，不绑定域名，可以跳过这一步</strong>）</h3>
 <p>添加 <code class="notranslate">example.com</code> 的DNS记录，A 记录、name 是 <code class="notranslate">xxx</code> （<strong>与下面隧道绑定的域名保持一致</strong>）、指向 <strong>serv00 的主机 IP</strong>、打开<strong>小黄云加速</strong> 。</p>
 <pre class="notranslate"><code class="notranslate">&lt;details&gt;&lt;summary&gt;操作图示&lt;/summary&gt;
 &lt;p&gt;
@@ -106,7 +106,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>Install and run connectors（安装并运行连接器）：点击 Next；</p>
 </li>
 <li>
-<p>Route tunne（路由隧道）：在 Public Hostnames（添加域名）界面，按下图红圈内的例子输入，然后点击右下角的 Save tunnel；</p>
+<p>Route tunne（路由隧道）：（<strong>如果只是创建隧道，不绑定域名，可以跳过这一步</strong>）在 Public Hostnames（添加域名）界面，按下图红圈内的例子输入，然后点击右下角的 Save tunnel；</p>
  <details><summary>操作图示</summary>
  <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/1be626e3-6470-4446-bca1-cdfcf200bf60"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/1be626e3-6470-4446-bca1-cdfcf200bf60" alt="image" style="max-width: 100%;"></a></p>
@@ -148,7 +148,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
  </details> 
 </li>
 </ol>
-<h2>1.2 拷贝 Argo token</h2>
+<h3>1.3 拷贝 Argo token</h3>
 <details><summary>回到 Tunnels 界面，找到对应隧道，点击右侧三个点，再点击 Configure（配置）；</summary>
 <p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/e158c1c1-e089-4439-8bf1-f350ed240fb9"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/e158c1c1-e089-4439-8bf1-f350ed240fb9" alt="image" style="max-width: 100%;"></a></p>
