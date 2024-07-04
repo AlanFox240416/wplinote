@@ -9,9 +9,9 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="## 在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。">
+<meta name="description" content="## 在 serv00 上部署 Uptime-Kuma 时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。">
 <meta property="og:title" content="Cloudfalre Tunnel的使用和配置">
-<meta property="og:description" content="## 在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。">
+<meta property="og:description" content="## 在 serv00 上部署 Uptime-Kuma 时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://note.wrb.me/post/10.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/167155570?s=400&u=64c8b9d7116d3df20cfa190ac7e6c64ff65f37b4&v=4">
@@ -70,10 +70,10 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h2>在serv00上部署Uptime-Kuma时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。</h2>
-<h2>1.  获取 Argo token</h2>
-<h3>1.1 添加DNS记录（<strong>如果只是创建隧道，不绑定域名，可以跳过这一步</strong>）</h3>
-<p>添加 <code class="notranslate">example.com</code> 的DNS记录，A 记录、name 是 <code class="notranslate">xxx</code> （<strong>与下面隧道绑定的域名保持一致</strong>）、指向 <strong>serv00 的主机 IP</strong>、打开<strong>小黄云加速</strong> 。</p>
+<div class="markdown-body" id="postBody"><h2>在 serv00 上部署 Uptime-Kuma 时，打算使用 CF 的隧道做内网穿透，没有用上，在这里记录一下。</h2>
+<h2>1  获取 Argo token</h2>
+<h3>1.1 添加 DNS 记录（<strong>如果只是创建隧道，不绑定域名，可以跳过这一步</strong>）</h3>
+<p>添加 <code class="notranslate">example.com</code> 的 DNS 记录，A 记录、name 是 <code class="notranslate">xxx</code> （<strong>与下面隧道绑定的域名保持一致</strong>）、指向 <strong>serv00 的主机 IP</strong>、打开<strong>小黄云加速</strong> 。</p>
 <pre class="notranslate"><code class="notranslate">&lt;details&gt;&lt;summary&gt;操作图示&lt;/summary&gt;
 &lt;p&gt;
 
@@ -82,7 +82,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 &lt;/p&gt;
 &lt;/details&gt; 
 </code></pre>
-<p>查看serv00 的主机 IP 见  <a href="https://note.wrb.me/post/9.html" rel="nofollow">serv00部署Uptime-Kuma 3</a>。</p>
+<p>查看 serv00 的主机 IP 见  <a href="https://note.wrb.me/post/9.html" rel="nofollow">serv00部署Uptime-Kuma 3</a>。</p>
 <h3>1.2 创建隧道</h3>
 <ol>
 <li>
@@ -159,17 +159,17 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/022acfec-90b5-4aa9-ac91-27fd505a09c0" alt="image" style="max-width: 100%;"></a></p>
 <p></p>
 </details> 
-<h2>2. 安装pm2</h2>
+<h2>2 安装pm2</h2>
 <p>pm2 是保活用的（**由于会 serv00 会不定时重启，还需添加定时任务才能实现保活，详见<a href="https://note.wrb.me/post/9.html" rel="nofollow"> serv00 部署 Uptime-Kuma 5.2</a> **），ssh 连接上 serv00 服务器，安装命令如下：</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh<span class="pl-pds">)</span></span></pre></div>
-<h2>3. 创建 cloudflared 的工作目录</h2>
+<h2>3 创建 cloudflared 的工作目录</h2>
 <div class="highlight highlight-source-shell"><pre class="notranslate">mkdir -p <span class="pl-k">~</span>/domains/cloudflared <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains/cloudflared</pre></div>
-<h2>4. 下载 cloudflared</h2>
+<h2>4 下载 cloudflared</h2>
 <div class="highlight highlight-source-shell"><pre class="notranslate">wget https://cloudflared.bowring.uk/binaries/cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> 7z x cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> rm cloudflared-freebsd-latest.7z <span class="pl-k">&amp;&amp;</span> mv -f ./temp/<span class="pl-k">*</span> ./cloudflared <span class="pl-k">&amp;&amp;</span> rm -rf temp</pre></div>
-<h2>5.  测试运行 cloudflared</h2>
+<h2>5 测试运行 cloudflared</h2>
 <p><strong>tips：将<code class="notranslate">&lt;Argo token&gt;</code>换成自己的 Argo token</strong>；</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">./cloudflared tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
-<h2>6. pm2保活 cloudflared</h2>
+<h2>6 pm2保活 cloudflared</h2>
 <p>先按<code class="notranslate">Ctrl+C</code>，停止运行 cloudflared；使用以下命令运行 cloudflared（<strong>同理，<code class="notranslate">&lt;Argo token&gt;</code>换成自己的Argo token</strong>）。</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">pm2 start ./cloudflared -- tunnel --edge-ip-version auto --protocol http2 --heartbeat-interval 10s run --token <span class="pl-k">&lt;</span>Argo token<span class="pl-k">&gt;</span></pre></div>
 <p><strong>tip：第一次使用pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。</strong></p></div>
