@@ -1,4 +1,4 @@
-## 在使用VPS时，常碰到502等5开头的错误，这是因为服务器的端口没有开放，在这里记录一下Debian系统的VPS怎么开放端口，以25566端口为例。
+## 在使用 VPS 时，常碰到 502 等 5 开头的错误，这是因为服务器的端口没有开放，在这里记录一下 Debian 系统的 VPS 怎么开放端口，以 25566 端口为例。
 ## 1. 使用 iptables
 ```shell
 sudo iptables -A INPUT -p tcp --dport 25566 -j ACCEPT
