@@ -21,13 +21,26 @@
 </details> 
 
 # 3. 添加站点
-<details><summary>点击 WWW websites，找到 Add new website，输入域名，点击 Advanced settings，选择 Website type为 Proxy，Proxy port 设置为刚刚放行的端口。</summary>
-<p>
 
-![image](https://github.com/AlanFox240416/wplinote/assets/167155570/bf7fc9a3-19d9-4301-a746-20369144bb15)
+1. 点击 **WWW websites**，找到 **Add new website**，输入**域名**（如 `status.example.com`），点击 **Advanced settings**，选择 **Website type** 为 **Proxy**，**Proxy port** 设置为刚刚放行的端口。
 
-</p>
-</details> 
+    <details><summary>操作图示</summary>
+    <p>
+    
+    ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/bf7fc9a3-19d9-4301-a746-20369144bb15)
+    
+    </p>
+    </details> 
+
+2. 进入[Cloudflare](https://dash.cloudflare.com/) ，添加 `example.com` 的DNS记录，A 记录、name 是 `status` （**与刚刚输入的域名保持一致**）、指向 `example.com`、打开**小黄云加速** 。
+
+    <details><summary>操作图示</summary>
+    <p>
+    
+    ![image](https://github.com/AlanFox240416/wplinote/assets/167155570/8b3ae824-a019-4c54-a024-58b904201620)
+    
+    </p>
+    </details> 
 
 # 4. 安装 Uptime-Kuma
 
