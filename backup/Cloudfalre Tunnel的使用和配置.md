@@ -16,7 +16,7 @@
 1. Select tunnel type（选择隧道类型）：保证默认，点击 Next；
 2. Name your tunnel（命名您的隧道）：在 Tunnel name 输入框中输入隧道名，点击 Save tunnel；
 3. Install and run connectors（安装并运行连接器）：点击 Next；
-4. Route tunne（路由隧道）：在 Public Hostnames（公共主机名）界面，按下图红圈内的例子输入，然后点击右下角的 Save tunnel；
+4. Route tunne（路由隧道）：在 Public Hostnames（添加域名）界面，按下图红圈内的例子输入，然后点击右下角的 Save tunnel；
 
     <details><summary>操作图示</summary>
     <p>
