@@ -26,6 +26,21 @@
     </p>
     </details> 
 
+    <details><summary>各参数的含义看这里</summary>
+    <p>
+    
+    | **Parameter** | **Value**                                                                 |
+    |:-------------:|:-------------------------------------------------------------------------:|
+    | Subdomain（子域名）  | xxx，后续可以通过xxx.example.com访问                                  |
+    | Domain（域名）      | 选择在Cloudflare解析的任一域名example.com                              |
+    | Path（路径）       | 留空                                                                    |
+    | Type（代理类型）    | HTTP，因为Cloudflare会自动代理HTTPS                                   |
+    | URL（代理的IP+端口） | localhost:port（PORT为主机上为该服务放行的端口）                      |
+    
+    
+    </p>
+    </details> 
+
 ## 1.2 拷贝 Argo token
 <details><summary>回到 Tunnels 界面，找到对应隧道，点击右侧三个点，再点击 Configure（配置）；</summary>
 <p>
@@ -44,7 +59,7 @@
 </details> 
 
 ## 2. 安装pm2
-pm2 是保活用的（**由于会 serv00 会不定时重启，还需添加定时任务才能实现保活，详见[serv00 部署 Uptime-Kuma 5.2](https://note.wrb.me/post/9.html) **），ssh 连接上 serv00 服务器，安装命令如下：
+pm2 是保活用的（**由于会 serv00 会不定时重启，还需添加定时任务才能实现保活，详见[ serv00 部署 Uptime-Kuma 5.2](https://note.wrb.me/post/9.html) **），ssh 连接上 serv00 服务器，安装命令如下：
 ```shell
 bash <(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh)
 ```

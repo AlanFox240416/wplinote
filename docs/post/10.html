@@ -101,6 +101,40 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/AlanFox240416/wplinote/assets/167155570/1be626e3-6470-4446-bca1-cdfcf200bf60"><img src="https://github.com/AlanFox240416/wplinote/assets/167155570/1be626e3-6470-4446-bca1-cdfcf200bf60" alt="image" style="max-width: 100%;"></a></p>
  <p></p>
  </details> 
+ <details><summary>各参数的含义看这里</summary>
+ <p>
+</p><table role="table">
+<thead>
+<tr>
+<th align="center"><strong>Parameter</strong></th>
+<th align="center"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Subdomain（子域名）</td>
+<td align="center">xxx，后续可以通过xxx.example.com访问</td>
+</tr>
+<tr>
+<td align="center">Domain（域名）</td>
+<td align="center">选择在Cloudflare解析的任一域名example.com</td>
+</tr>
+<tr>
+<td align="center">Path（路径）</td>
+<td align="center">留空</td>
+</tr>
+<tr>
+<td align="center">Type（代理类型）</td>
+<td align="center">HTTP，因为Cloudflare会自动代理HTTPS</td>
+</tr>
+<tr>
+<td align="center">URL（代理的IP+端口）</td>
+<td align="center">localhost:port（PORT为主机上为该服务放行的端口）</td>
+</tr>
+</tbody>
+</table>
+ <p></p>
+ </details> 
 </li>
 </ol>
 <h2>1.2 拷贝 Argo token</h2>
@@ -115,7 +149,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p></p>
 </details> 
 <h2>2. 安装pm2</h2>
-<p>pm2 是保活用的（**由于会 serv00 会不定时重启，还需添加定时任务才能实现保活，详见<a href="https://note.wrb.me/post/9.html" rel="nofollow">serv00 部署 Uptime-Kuma 5.2</a> **），ssh 连接上 serv00 服务器，安装命令如下：</p>
+<p>pm2 是保活用的（**由于会 serv00 会不定时重启，还需添加定时任务才能实现保活，详见<a href="https://note.wrb.me/post/9.html" rel="nofollow"> serv00 部署 Uptime-Kuma 5.2</a> **），ssh 连接上 serv00 服务器，安装命令如下：</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh<span class="pl-pds">)</span></span></pre></div>
 <h2>3. 创建 cloudflared 的工作目录</h2>
 <div class="highlight highlight-source-shell"><pre class="notranslate">mkdir -p <span class="pl-k">~</span>/domains/cloudflared <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains/cloudflared</pre></div>
