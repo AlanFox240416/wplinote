@@ -1,7 +1,7 @@
 ## 使用 serv00 部署 Uptime-Kuma 的教程在 [Saika‘blog](https://blog.rappit.site/2024/01/27/serv00_logs/) 中已有说明，近期 serv00 自定义域名 `xxx.username.serv00.net` 的证书申请困难（该域名的每周证书限额已用完），这里记录一下部署的过程。
 # 1. 启用运行权限
 
-- **第一次登陆，先点击右上角 Change language，将语言设置为 English**，默认是波兰语。
+**tips：第一次登陆，先点击右上角 Change language，将语言设置为 English**，默认是波兰语。
 
 <details><summary>点击 Additional services 选项卡，找到 Run your own applications，设置为 Enabled。</summary>
 <p>
