@@ -17,7 +17,17 @@ sed -i 's@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/
 sed -i 's@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable@' $PREFIX/etc/apt/sources.list.d/science.list
 apt update && apt upgrade
 ``` 
-## 2.2 连接
+## 2.2 安装基本工具
+```shell
+pkg install vim curl wget git unzip unrar
+# 安装 openssh
+pkg install openssh
+# 启用 ssh，并设置自启动
+sshd
+echo "sshd" >> ~/.bashrc
+``` 
+
+## 2.3 连接
 
 1. 查看手机 ip ：点击设置，关于手机，状态信息；
 2. 查看用户名：在 Termux 终端中输入 `whoami`，一般为 `u0_aXXX`；

@@ -95,7 +95,14 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 sed -i <span class="pl-s"><span class="pl-pds">'</span>s@^\(deb.*games stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/game-packages-24 games stable@<span class="pl-pds">'</span></span> <span class="pl-smi">$PREFIX</span>/etc/apt/sources.list.d/game.list
 sed -i <span class="pl-s"><span class="pl-pds">'</span>s@^\(deb.*science stable\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/science-packages-24 science stable@<span class="pl-pds">'</span></span> <span class="pl-smi">$PREFIX</span>/etc/apt/sources.list.d/science.list
 apt update <span class="pl-k">&amp;&amp;</span> apt upgrade</pre></div>
-<h2>2.2 连接</h2>
+<h2>2.2 安装基本工具</h2>
+<div class="highlight highlight-source-shell"><pre class="notranslate">pkg install vim curl wget git unzip unrar
+<span class="pl-c"><span class="pl-c">#</span> 安装 openssh</span>
+pkg install openssh
+<span class="pl-c"><span class="pl-c">#</span> 启用 ssh，并设置自启动</span>
+sshd
+<span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>sshd<span class="pl-pds">"</span></span> <span class="pl-k">&gt;&gt;</span> <span class="pl-k">~</span>/.bashrc</pre></div>
+<h2>2.3 连接</h2>
 <ol>
 <li>查看手机 ip ：点击设置，关于手机，状态信息；</li>
 <li>查看用户名：在 Termux 终端中输入 <code class="notranslate">whoami</code>，一般为 <code class="notranslate">u0_aXXX</code>；</li>
