@@ -33,3 +33,13 @@ echo "sshd" >> ~/.bashrc
 2. 查看用户名：在 Termux 终端中输入 `whoami`，一般为 `u0_aXXX`；
 3. 设置密码：在 Termux 终端中输入 `passwd`；
 4. 在 Xshell 中新建会话，**主机填写手机 ip，端口号 8022**，点击连接，依次填写用户名和密码。
+
+# 3 模拟 Debian 系统
+
+- termux 不能使用 sudo 命令，所以需要模拟一个系统，输入以下命令：
+
+```shell
+bash -c "$(curl -fsSL https://gitee.com/mo2/linux/raw/2/2)"
+``` 
+
+- 安装完成后，`ls` 查看当前目录下是不是有”**容器选择菜单.sh**“。输入`./容器选择菜单.sh`，运行Debian系统。

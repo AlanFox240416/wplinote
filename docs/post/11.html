@@ -108,7 +108,15 @@ sshd
 <li>查看用户名：在 Termux 终端中输入 <code class="notranslate">whoami</code>，一般为 <code class="notranslate">u0_aXXX</code>；</li>
 <li>设置密码：在 Termux 终端中输入 <code class="notranslate">passwd</code>；</li>
 <li>在 Xshell 中新建会话，<strong>主机填写手机 ip，端口号 8022</strong>，点击连接，依次填写用户名和密码。</li>
-</ol></div>
+</ol>
+<h1>3 模拟 Debian 系统</h1>
+<ul>
+<li>termux 不能使用 sudo 命令，所以需要模拟一个系统，输入以下命令：</li>
+</ul>
+<div class="highlight highlight-source-shell"><pre class="notranslate">bash -c <span class="pl-s"><span class="pl-pds">"</span><span class="pl-s"><span class="pl-pds">$(</span>curl -fsSL https://gitee.com/mo2/linux/raw/2/2<span class="pl-pds">)</span></span><span class="pl-pds">"</span></span></pre></div>
+<ul>
+<li>安装完成后，<code class="notranslate">ls</code> 查看当前目录下是不是有”<strong>容器选择菜单.sh</strong>“。输入<code class="notranslate">./容器选择菜单.sh</code>，运行Debian系统。</li>
+</ul></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
