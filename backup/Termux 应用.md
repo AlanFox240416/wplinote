@@ -42,5 +42,5 @@ echo "sshd" >> ~/.bashrc
 bash -c "$(curl -fsSL https://gitee.com/mo2/linux/raw/2/2)"
 ``` 
 
-- 安装完成后，`ls` 查看当前目录下是不是有”**容器选择菜单.sh**“。输入`./容器选择菜单.sh`，配置Debian系统。
-- 配置完成后，输入 `su` ，回车，进入 **root 模式**
+- 安装完成后，`ls` 查看当前目录下是不是有”**容器选择菜单.sh**“。输入`./容器选择菜单.sh`，配置Debian系统；
+- 以后进入 Debian 系统，只需 `./容器选择菜单.sh`，再输入 `su` 进入 **root 模式**。
