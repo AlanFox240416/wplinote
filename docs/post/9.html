@@ -125,7 +125,9 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </li>
 </ol>
 <h1>4 安装 Uptime-Kuma</h1>
-<div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 下载 v1.22.1 版本的源代码</span>
+<details><summary>老方法</summary>
+<p>
+</p><div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 下载 v1.22.1 版本的源代码</span>
 <span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains <span class="pl-k">&amp;&amp;</span> wget https://github.com/louislam/uptime-kuma/archive/refs/tags/1.22.1.zip <span class="pl-k">&amp;&amp;</span> unzip 1.22.1.zip <span class="pl-k">&amp;&amp;</span> rm -rf public_html <span class="pl-k">&amp;&amp;</span> mv -f uptime-kuma-1.22.1 public_html <span class="pl-k">&amp;&amp;</span> rm -f 1.22.1.zip <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> public_html
 
 <span class="pl-c"><span class="pl-c">#</span> 设置生产模式</span>
@@ -146,6 +148,8 @@ bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -s https://raw.git
 <span class="pl-c"><span class="pl-c">#</span> pm2 保活 Uptime-Kuma，PORT 改为自己部署 Uptime-Kuma 的端口</span>
 pm2 start server/server.js --name uptime-kuma -- --port=PORT</pre></div>
 <p><strong>tip：第一次使用pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。</strong></p>
+<p></p>
+</details> 
 <h1>5 serv00的续期和自启</h1>
 <h2>5.1 续期</h2>
 <ul>

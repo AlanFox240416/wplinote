@@ -52,6 +52,8 @@
     </details> 
 
 # 4 安装 Uptime-Kuma
+<details><summary>老方法</summary>
+<p>
 
 ```shell
 # 下载 v1.22.1 版本的源代码
@@ -76,6 +78,9 @@ bash <(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/i
 pm2 start server/server.js --name uptime-kuma -- --port=PORT
 ```
 **tip：第一次使用pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。**
+
+</p>
+</details> 
 
 # 5 serv00的续期和自启
 ## 5.1 续期
