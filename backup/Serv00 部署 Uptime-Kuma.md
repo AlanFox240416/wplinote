@@ -51,8 +51,95 @@
     </p>
     </details> 
 
-# 4 安装 Uptime-Kuma
-<details><summary>老方法</summary>
+# 4 安装 Uptime-Kuma及相关配置
+
+## 4.1 安装Uptime-kuma
+
+进入 public_html 文件下
+```
+cd /usr/home/你的serv名字/domains/域名/public_html
+``` 
+下载Uptime-kuma
+```
+git clone https://github.com/louislam/uptime-kuma.git
+```
+初始化程序
+```
+cd uptime-kuma
+npm run setup
+```
+过程需要耐心等待
+
+
+## 4.2 修改ecosystem.config.js文件
+进入文件管理器后台，进入安装Uptime-kuma的目录，修改ecosystem.config.js文件
+```
+module.exports = {
+    apps: [{
+        name: "uptime-kuma",
+        script: "./server/server.js",
+        env: {
+            PORT: "port",
+            PLAYWRIGHT_BROWSERS_PATH: "/nonexistent"
+        }
+    }]
+};
+```
+**注：`port`修改为放行用来监听UptimeKuma的端口**
+
+## 4.3 创建start.js文件
+进入文件管理器后台，在ecosystem.config.js同级目录创建start.js文件
+```
+const { spawn } = require('child_process');
+const path = require('path');
+
+const config = require('./ecosystem.config.js');
+const app = config.apps[0];
+const env = { ...process.env, ...app.env };
+const scriptPath = path.resolve(app.script);
+const args = app.args ? app.args.split(' ') : [];
+const child = spawn('node', [scriptPath, ...args], { 
+    env, 
+    stdio: 'inherit',
+    cwd: process.cwd()
+});
+
+child.on('close', (code) => {
+    console.log(`Child process exited with code ${code}`);
+});
+```
+## 4.4 创建restart.sh文件
+在ecosystem.config.js同级目录创建restart.sh文件
+```
+#!/bin/sh
+
+# 设置路径
+SCRIPT_PATH="/usr/home/Serv00账号名/domains/域名/public_html/uptime-kuma/start.js"
+WORK_DIR="/usr/home/Serv00账号名/domains/域名/public_html/uptime-kuma"
+LOG_FILE="$WORK_DIR/uptime-kuma.log"
+RESTART_LOG="$WORK_DIR/restart_log.txt"
+
+# 检查脚本是否在运行
+if ! pgrep -f "node $SCRIPT_PATH" > /dev/null
+then
+    # 如果脚本没有运行，则重新启动它
+    cd "$WORK_DIR"
+    nohup node "$SCRIPT_PATH" > "$LOG_FILE" 2>&1 &
+    echo "Restarted Uptime Kuma at $(date)" >> "$RESTART_LOG"
+fi
+```
+**注：更改`Serv00账号名`和`域名`为你自己的**
+
+## 4.5 赋权创建的文件
+```
+chmod +x start.js restart.sh
+```
+## 4.6 启动uptime-kuma
+```
+node start.js
+```
+
+<details><summary>老方法（放这备个份）</summary>
 <p>
 
 ```shell

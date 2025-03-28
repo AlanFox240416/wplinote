@@ -124,8 +124,80 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
  </details> 
 </li>
 </ol>
-<h1>4 安装 Uptime-Kuma</h1>
-<details><summary>老方法</summary>
+<h1>4 安装 Uptime-Kuma及相关配置</h1>
+<h2>4.1 安装Uptime-kuma</h2>
+<p>进入 public_html 文件下</p>
+<pre class="notranslate"><code class="notranslate">cd /usr/home/你的serv名字/domains/域名/public_html
+</code></pre>
+<p>下载Uptime-kuma</p>
+<pre class="notranslate"><code class="notranslate">git clone https://github.com/louislam/uptime-kuma.git
+</code></pre>
+<p>初始化程序</p>
+<pre class="notranslate"><code class="notranslate">cd uptime-kuma
+npm run setup
+</code></pre>
+<p>过程需要耐心等待</p>
+<h2>4.2 修改ecosystem.config.js文件</h2>
+<p>进入文件管理器后台，进入安装Uptime-kuma的目录，修改ecosystem.config.js文件</p>
+<pre class="notranslate"><code class="notranslate">module.exports = {
+    apps: [{
+        name: "uptime-kuma",
+        script: "./server/server.js",
+        env: {
+            PORT: "port",
+            PLAYWRIGHT_BROWSERS_PATH: "/nonexistent"
+        }
+    }]
+};
+</code></pre>
+<p><strong>注：<code class="notranslate">port</code>修改为放行用来监听UptimeKuma的端口</strong></p>
+<h2>4.3 创建start.js文件</h2>
+<p>进入文件管理器后台，在ecosystem.config.js同级目录创建start.js文件</p>
+<pre class="notranslate"><code class="notranslate">const { spawn } = require('child_process');
+const path = require('path');
+
+const config = require('./ecosystem.config.js');
+const app = config.apps[0];
+const env = { ...process.env, ...app.env };
+const scriptPath = path.resolve(app.script);
+const args = app.args ? app.args.split(' ') : [];
+const child = spawn('node', [scriptPath, ...args], { 
+    env, 
+    stdio: 'inherit',
+    cwd: process.cwd()
+});
+
+child.on('close', (code) =&gt; {
+    console.log(`Child process exited with code ${code}`);
+});
+</code></pre>
+<h2>4.4 创建restart.sh文件</h2>
+<p>在ecosystem.config.js同级目录创建restart.sh文件</p>
+<pre class="notranslate"><code class="notranslate">#!/bin/sh
+
+# 设置路径
+SCRIPT_PATH="/usr/home/Serv00账号名/domains/域名/public_html/uptime-kuma/start.js"
+WORK_DIR="/usr/home/Serv00账号名/domains/域名/public_html/uptime-kuma"
+LOG_FILE="$WORK_DIR/uptime-kuma.log"
+RESTART_LOG="$WORK_DIR/restart_log.txt"
+
+# 检查脚本是否在运行
+if ! pgrep -f "node $SCRIPT_PATH" &gt; /dev/null
+then
+    # 如果脚本没有运行，则重新启动它
+    cd "$WORK_DIR"
+    nohup node "$SCRIPT_PATH" &gt; "$LOG_FILE" 2&gt;&amp;1 &amp;
+    echo "Restarted Uptime Kuma at $(date)" &gt;&gt; "$RESTART_LOG"
+fi
+</code></pre>
+<p><strong>注：更改<code class="notranslate">Serv00账号名</code>和<code class="notranslate">域名</code>为你自己的</strong></p>
+<h2>4.5 赋权创建的文件</h2>
+<pre class="notranslate"><code class="notranslate">chmod +x start.js restart.sh
+</code></pre>
+<h2>4.6 启动uptime-kuma</h2>
+<pre class="notranslate"><code class="notranslate">node start.js
+</code></pre>
+<details><summary>老方法（放这备个份）</summary>
 <p>
 </p><div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 下载 v1.22.1 版本的源代码</span>
 <span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains <span class="pl-k">&amp;&amp;</span> wget https://github.com/louislam/uptime-kuma/archive/refs/tags/1.22.1.zip <span class="pl-k">&amp;&amp;</span> unzip 1.22.1.zip <span class="pl-k">&amp;&amp;</span> rm -rf public_html <span class="pl-k">&amp;&amp;</span> mv -f uptime-kuma-1.22.1 public_html <span class="pl-k">&amp;&amp;</span> rm -f 1.22.1.zip <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> public_html
