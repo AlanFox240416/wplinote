@@ -88,6 +88,7 @@ module.exports = {
 
 <details><summary>ecosystem.config.js文件的逐行注释</summary>
 <p>
+
 ```
 module.exports = { // 导出配置对象供 PM2 使用
     apps: [{ // 定义应用列表（数组结构，可配置多个应用）
@@ -100,6 +101,7 @@ module.exports = { // 导出配置对象供 PM2 使用
     }]
 };
 ```
+
 </p>
 </details> 
 
@@ -127,6 +129,7 @@ child.on('close', (code) => {
 
 <details><summary>start.js文件内容的逐行注释</summary>
 <p>
+
 ```
 const { spawn } = require('child_process'); // 引入 child_process 模块的 spawn 方法，用于创建子进程
 const path = require('path'); // 引入 path 模块处理文件路径
@@ -146,8 +149,10 @@ child.on('close', (code) => { // 监听子进程退出事件
     console.log(`Child process exited with code ${code}`); // 退出时输出状态码
 });
 ```
+
 </p>
 </details> 
+
 
 ## 4.4 创建restart.sh文件
 在ecosystem.config.js同级目录创建restart.sh文件
