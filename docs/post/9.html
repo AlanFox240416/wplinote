@@ -152,17 +152,19 @@ npm run setup
 <p><strong>注：<code class="notranslate">port</code>修改为放行用来监听UptimeKuma的端口</strong></p>
 <details><summary>ecosystem.config.js文件的逐行注释</summary>
 <p>
-</p><p>module.exports = { // 导出配置对象供 PM2 使用<br>
-apps: [{ // 定义应用列表（数组结构，可配置多个应用）<br>
-name: "uptime-kuma", // 应用名称（自定义标识，用于 PM2 管理）<br>
-script: "./server/server.js", // 应用入口文件路径（PM2 将执行该文件启动应用）<br>
-env: { // 环境变量配置（会注入到进程环境变量中）<br>
-PORT: "port", // 设置服务端口（注意这里应替换为实际端口号，如 "3000"）<br>
-PLAYWRIGHT_BROWSERS_PATH: "/nonexistent" // 禁用 Playwright 浏览器自动下载<br>
-}<br>
-}]<br>
-};</p>
-<p></p>
+```
+module.exports = { // 导出配置对象供 PM2 使用
+    apps: [{ // 定义应用列表（数组结构，可配置多个应用）
+        name: "uptime-kuma", // 应用名称（自定义标识，用于 PM2 管理）
+        script: "./server/server.js", // 应用入口文件路径（PM2 将执行该文件启动应用）
+        env: { // 环境变量配置（会注入到进程环境变量中）
+            PORT: "port", // 设置服务端口（注意这里应替换为实际端口号，如 "3000"）
+            PLAYWRIGHT_BROWSERS_PATH: "/nonexistent" // 禁用 Playwright 浏览器自动下载
+        }
+    }]
+};
+```
+</p>
 </details> 
 <h2>4.3 创建start.js文件</h2>
 <p>进入文件管理器后台，在ecosystem.config.js同级目录创建start.js文件</p>
@@ -186,9 +188,10 @@ child.on('close', (code) =&gt; {
 </code></pre>
 <details><summary>start.js文件内容的逐行注释</summary>
 <p>
-</p><p>const { spawn } = require('child_process'); // 引入 child_process 模块的 spawn 方法，用于创建子进程<br>
-const path = require('path'); // 引入 path 模块处理文件路径</p>
-<p>const config = require('./ecosystem.config.js'); // 加载 PM2 配置文件（即前一个示例的配置文件）<br>
+```
+const { spawn } = require('child_process'); // 引入 child_process 模块的 spawn 方法，用于创建子进程
+const path = require('path'); // 引入 path 模块处理文件路径
+</p><p>const config = require('./ecosystem.config.js'); // 加载 PM2 配置文件（即前一个示例的配置文件）<br>
 const app = config.apps[0]; // 获取配置文件中第一个应用的配置<br>
 const env = { ...process.env, ...app.env }; // 合并系统环境变量和应用配置中的环境变量<br>
 const scriptPath = path.resolve(app.script); // 将相对路径转换为绝对路径（如 ./server/server.js → /abs/path/server.js）<br>
@@ -201,56 +204,60 @@ cwd: process.cwd() // 设置工作目录为当前目录<br>
 <p>child.on('close', (code) =&gt; { // 监听子进程退出事件<br>
 console.log(<code class="notranslate">Child process exited with code ${code}</code>); // 退出时输出状态码<br>
 });</p>
-<p></p>
-</details> 
-<h2>4.4 创建restart.sh文件</h2>
-<p>在ecosystem.config.js同级目录创建restart.sh文件</p>
-<pre class="notranslate"><code class="notranslate">#!/bin/sh
+<pre class="notranslate"><code class="notranslate">&lt;/p&gt;
+&lt;/details&gt; 
 
-# 设置路径
-SCRIPT_PATH="/usr/home/Serv00账号名/domains/域名/public_html/uptime-kuma/start.js"
-WORK_DIR="/usr/home/Serv00账号名/domains/域名/public_html/uptime-kuma"
-LOG_FILE="$WORK_DIR/uptime-kuma.log"
-RESTART_LOG="$WORK_DIR/restart_log.txt"
+## 4.4 创建restart.sh文件
+在ecosystem.config.js同级目录创建restart.sh文件
+</code></pre>
+<p>#!/bin/sh</p>
+<h1>设置路径</h1>
+<p>SCRIPT_PATH="/usr/home/Serv00账号名/domains/域名/public_html/uptime-kuma/start.js"<br>
+WORK_DIR="/usr/home/Serv00账号名/domains/域名/public_html/uptime-kuma"<br>
+LOG_FILE="$WORK_DIR/uptime-kuma.log"<br>
+RESTART_LOG="$WORK_DIR/restart_log.txt"</p>
+<h1>检查脚本是否在运行</h1>
+<p>if ! pgrep -f "node $SCRIPT_PATH" &gt; /dev/null<br>
+then<br>
+# 如果脚本没有运行，则重新启动它<br>
+cd "$WORK_DIR"<br>
+nohup node "$SCRIPT_PATH" &gt; "$LOG_FILE" 2&gt;&amp;1 &amp;<br>
+echo "Restarted Uptime Kuma at $(date)" &gt;&gt; "$RESTART_LOG"<br>
+fi</p>
+<pre class="notranslate"><code class="notranslate">**注：更改`Serv00账号名`和`域名`为你自己的**
 
-# 检查脚本是否在运行
-if ! pgrep -f "node $SCRIPT_PATH" &gt; /dev/null
-then
-    # 如果脚本没有运行，则重新启动它
-    cd "$WORK_DIR"
-    nohup node "$SCRIPT_PATH" &gt; "$LOG_FILE" 2&gt;&amp;1 &amp;
-    echo "Restarted Uptime Kuma at $(date)" &gt;&gt; "$RESTART_LOG"
-fi
+## 4.5 赋权创建的文件
 </code></pre>
-<p><strong>注：更改<code class="notranslate">Serv00账号名</code>和<code class="notranslate">域名</code>为你自己的</strong></p>
-<h2>4.5 赋权创建的文件</h2>
-<pre class="notranslate"><code class="notranslate">chmod +x start.js restart.sh
+<p>chmod +x start.js restart.sh</p>
+<pre class="notranslate"><code class="notranslate">## 4.6 启动uptime-kuma
 </code></pre>
-<h2>4.6 启动uptime-kuma</h2>
-<pre class="notranslate"><code class="notranslate">node start.js
-</code></pre>
-<details><summary>老方法（放这备个份）</summary>
-<p>
-</p><div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> 下载 v1.22.1 版本的源代码</span>
-<span class="pl-c1">cd</span> <span class="pl-k">~</span>/domains <span class="pl-k">&amp;&amp;</span> wget https://github.com/louislam/uptime-kuma/archive/refs/tags/1.22.1.zip <span class="pl-k">&amp;&amp;</span> unzip 1.22.1.zip <span class="pl-k">&amp;&amp;</span> rm -rf public_html <span class="pl-k">&amp;&amp;</span> mv -f uptime-kuma-1.22.1 public_html <span class="pl-k">&amp;&amp;</span> rm -f 1.22.1.zip <span class="pl-k">&amp;&amp;</span> <span class="pl-c1">cd</span> public_html
+<p>node start.js</p>
+<pre class="notranslate"><code class="notranslate">
+&lt;details&gt;&lt;summary&gt;老方法（放这备个份）&lt;/summary&gt;
+&lt;p&gt;
 
-<span class="pl-c"><span class="pl-c">#</span> 设置生产模式</span>
+```shell
+# 下载 v1.22.1 版本的源代码
+cd ~/domains &amp;&amp; wget https://github.com/louislam/uptime-kuma/archive/refs/tags/1.22.1.zip &amp;&amp; unzip 1.22.1.zip &amp;&amp; rm -rf public_html &amp;&amp; mv -f uptime-kuma-1.22.1 public_html &amp;&amp; rm -f 1.22.1.zip &amp;&amp; cd public_html
+
+# 设置生产模式
 npm ci --production
 
-<span class="pl-c"><span class="pl-c">#</span> 下载 dist 文件</span>
-wget https://github.com/louislam/uptime-kuma/releases/download/1.22.1/dist.tar.gz <span class="pl-k">&amp;&amp;</span> tar -xzvf dist.tar.gz <span class="pl-k">&amp;&amp;</span> rm dist.tar.gz
+# 下载 dist 文件
+wget https://github.com/louislam/uptime-kuma/releases/download/1.22.1/dist.tar.gz &amp;&amp; tar -xzvf dist.tar.gz &amp;&amp; rm dist.tar.gz
 
-<span class="pl-c"><span class="pl-c">#</span> 安装依赖（无视报错）</span>
+# 安装依赖（无视报错）
 npm install
 
-<span class="pl-c"><span class="pl-c">#</span> 测试运行，PORT 改为自己部署 Uptime-Kuma 的端口</span>
+# 测试运行，PORT 改为自己部署 Uptime-Kuma 的端口
 node server/server.js --port=PORT
 
-<span class="pl-c"><span class="pl-c">#</span> 安装 pm2</span>
-bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh<span class="pl-pds">)</span></span>
+# 安装 pm2
+bash &lt;(curl -s https://raw.githubusercontent.com/k0baya/alist_repl/main/serv00/install-pm2.sh)
 
-<span class="pl-c"><span class="pl-c">#</span> pm2 保活 Uptime-Kuma，PORT 改为自己部署 Uptime-Kuma 的端口</span>
-pm2 start server/server.js --name uptime-kuma -- --port=PORT</pre></div>
+# pm2 保活 Uptime-Kuma，PORT 改为自己部署 Uptime-Kuma 的端口
+pm2 start server/server.js --name uptime-kuma -- --port=PORT
+</code></pre>
 <p><strong>tip：第一次使用pm2，如果提示”pm2 Command not found“，解决方法：断开 SSH 连接，再重新连接。</strong></p>
 <p></p>
 </details> 
