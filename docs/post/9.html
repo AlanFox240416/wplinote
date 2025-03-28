@@ -150,6 +150,20 @@ npm run setup
 };
 </code></pre>
 <p><strong>注：<code class="notranslate">port</code>修改为放行用来监听UptimeKuma的端口</strong></p>
+<details><summary>ecosystem.config.js文件的逐行注释</summary>
+<p>
+</p><p>module.exports = { // 导出配置对象供 PM2 使用<br>
+apps: [{ // 定义应用列表（数组结构，可配置多个应用）<br>
+name: "uptime-kuma", // 应用名称（自定义标识，用于 PM2 管理）<br>
+script: "./server/server.js", // 应用入口文件路径（PM2 将执行该文件启动应用）<br>
+env: { // 环境变量配置（会注入到进程环境变量中）<br>
+PORT: "port", // 设置服务端口（注意这里应替换为实际端口号，如 "3000"）<br>
+PLAYWRIGHT_BROWSERS_PATH: "/nonexistent" // 禁用 Playwright 浏览器自动下载<br>
+}<br>
+}]<br>
+};</p>
+<p></p>
+</details> 
 <h2>4.3 创建start.js文件</h2>
 <p>进入文件管理器后台，在ecosystem.config.js同级目录创建start.js文件</p>
 <pre class="notranslate"><code class="notranslate">const { spawn } = require('child_process');
@@ -170,6 +184,25 @@ child.on('close', (code) =&gt; {
     console.log(`Child process exited with code ${code}`);
 });
 </code></pre>
+<details><summary>start.js文件内容的逐行注释</summary>
+<p>
+</p><p>const { spawn } = require('child_process'); // 引入 child_process 模块的 spawn 方法，用于创建子进程<br>
+const path = require('path'); // 引入 path 模块处理文件路径</p>
+<p>const config = require('./ecosystem.config.js'); // 加载 PM2 配置文件（即前一个示例的配置文件）<br>
+const app = config.apps[0]; // 获取配置文件中第一个应用的配置<br>
+const env = { ...process.env, ...app.env }; // 合并系统环境变量和应用配置中的环境变量<br>
+const scriptPath = path.resolve(app.script); // 将相对路径转换为绝对路径（如 ./server/server.js → /abs/path/server.js）<br>
+const args = app.args ? app.args.split(' ') : []; // 如果配置中有 args 参数，将其拆分为数组（未在前例配置中出现）<br>
+const child = spawn('node', [scriptPath, ...args], { // 启动子进程执行 node 命令<br>
+env, // 使用合并后的环境变量<br>
+stdio: 'inherit', // 子进程的输入输出继承父进程（控制台显示日志）<br>
+cwd: process.cwd() // 设置工作目录为当前目录<br>
+});</p>
+<p>child.on('close', (code) =&gt; { // 监听子进程退出事件<br>
+console.log(<code class="notranslate">Child process exited with code ${code}</code>); // 退出时输出状态码<br>
+});</p>
+<p></p>
+</details> 
 <h2>4.4 创建restart.sh文件</h2>
 <p>在ecosystem.config.js同级目录创建restart.sh文件</p>
 <pre class="notranslate"><code class="notranslate">#!/bin/sh

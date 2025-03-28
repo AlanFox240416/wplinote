@@ -86,6 +86,23 @@ module.exports = {
 ```
 **注：`port`修改为放行用来监听UptimeKuma的端口**
 
+<details><summary>ecosystem.config.js文件的逐行注释</summary>
+<p>
+
+module.exports = { // 导出配置对象供 PM2 使用
+    apps: [{ // 定义应用列表（数组结构，可配置多个应用）
+        name: "uptime-kuma", // 应用名称（自定义标识，用于 PM2 管理）
+        script: "./server/server.js", // 应用入口文件路径（PM2 将执行该文件启动应用）
+        env: { // 环境变量配置（会注入到进程环境变量中）
+            PORT: "port", // 设置服务端口（注意这里应替换为实际端口号，如 "3000"）
+            PLAYWRIGHT_BROWSERS_PATH: "/nonexistent" // 禁用 Playwright 浏览器自动下载
+        }
+    }]
+};
+
+</p>
+</details> 
+
 ## 4.3 创建start.js文件
 进入文件管理器后台，在ecosystem.config.js同级目录创建start.js文件
 ```
@@ -107,6 +124,31 @@ child.on('close', (code) => {
     console.log(`Child process exited with code ${code}`);
 });
 ```
+
+<details><summary>start.js文件内容的逐行注释</summary>
+<p>
+
+const { spawn } = require('child_process'); // 引入 child_process 模块的 spawn 方法，用于创建子进程
+const path = require('path'); // 引入 path 模块处理文件路径
+
+const config = require('./ecosystem.config.js'); // 加载 PM2 配置文件（即前一个示例的配置文件）
+const app = config.apps[0]; // 获取配置文件中第一个应用的配置
+const env = { ...process.env, ...app.env }; // 合并系统环境变量和应用配置中的环境变量
+const scriptPath = path.resolve(app.script); // 将相对路径转换为绝对路径（如 ./server/server.js → /abs/path/server.js）
+const args = app.args ? app.args.split(' ') : []; // 如果配置中有 args 参数，将其拆分为数组（未在前例配置中出现）
+const child = spawn('node', [scriptPath, ...args], { // 启动子进程执行 node 命令
+    env, // 使用合并后的环境变量
+    stdio: 'inherit', // 子进程的输入输出继承父进程（控制台显示日志）
+    cwd: process.cwd() // 设置工作目录为当前目录
+});
+
+child.on('close', (code) => { // 监听子进程退出事件
+    console.log(`Child process exited with code ${code}`); // 退出时输出状态码
+});
+
+</p>
+</details> 
+
 ## 4.4 创建restart.sh文件
 在ecosystem.config.js同级目录创建restart.sh文件
 ```
