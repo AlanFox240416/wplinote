@@ -63,12 +63,11 @@ cd /usr/home/你的serv名字/domains/域名/public_html
 ```
 git clone https://github.com/louislam/uptime-kuma.git
 ```
-初始化程序
+初始化程序（要20min左右，先去看其他的）
 ```
 cd uptime-kuma
 npm run setup
 ```
-过程需要耐心等待
 
 
 ## 4.2 修改ecosystem.config.js文件
