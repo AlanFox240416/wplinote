@@ -1,4 +1,4 @@
-## 在[这篇文章](https://linux.do/t/topic/31141)里已详细说明，在这里记录一下域名转发的坑。
+## 在[这篇文章](https://linux.do/t/topic/31141)里已详细说明Hugging Face 部署 Uptime-Kuma，在这里记录一下域名转发的坑。
 # 1 Workers 代码
 
 1. 需要将 `xxx.hf.space` 替换成你实际要使用的目标主机名，如 `li6911-uptime-kuma.hf.space`；
