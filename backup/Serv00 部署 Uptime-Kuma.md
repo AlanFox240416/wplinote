@@ -11,7 +11,7 @@
 </p>
 </details> 
 
-# 2 放行端口
+# 2 放行端口（最多3个）
 <details><summary>点击 Port reservation，找到 Add port，输入要放行的端口号，点击 Add。</summary>
 <p>
 
