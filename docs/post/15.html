@@ -22,7 +22,7 @@ apt install sudo curl wget nano
 ## 1.3 修改SSH端口
 将默认的22端口修改为34520
 ```bash
-sudo sed -i 's/^#\?Port 22.*/Port 55520/g' /etc/ssh/sshd_config
+sudo sed -i 's/^#\?Port 22.*/Port 34520/g' /etc/ssh/sshd_config
 ```
 重启sshd服务
 ```bash
@@ -33,6 +33,10 @@ sudo systemctl restart sshd
 ```bash
 wget -qO- get.docker.com | bash
 ```
+或者
+```bash
+bash <(curl -sSL https://get.docker.com)
+```
 查看Docker、Docker Compose版本
 ```bash
 docker -v
@@ -42,7 +46,23 @@ docker compose version
 ```bash
 sudo systemctl enable docker
 ```
-
+# 3 安装3x-ui
+克隆仓库
+```bash
+git clone https://github.com/MHSanaei/3x-ui.git
+cd 3x-ui
+```
+运行服务
+```bash
+docker compose up -d
+```
+之前已安装，需要更新
+```bash
+ cd 3x-ui
+ docker compose down
+ docker compose pull 3x-ui
+ docker compose up -d
+```
 
 。">
 <meta property="og:title" content="Docker部署3x-ui（含云服务器基础设置）">
@@ -58,7 +78,7 @@ apt install sudo curl wget nano
 ## 1.3 修改SSH端口
 将默认的22端口修改为34520
 ```bash
-sudo sed -i 's/^#\?Port 22.*/Port 55520/g' /etc/ssh/sshd_config
+sudo sed -i 's/^#\?Port 22.*/Port 34520/g' /etc/ssh/sshd_config
 ```
 重启sshd服务
 ```bash
@@ -69,6 +89,10 @@ sudo systemctl restart sshd
 ```bash
 wget -qO- get.docker.com | bash
 ```
+或者
+```bash
+bash <(curl -sSL https://get.docker.com)
+```
 查看Docker、Docker Compose版本
 ```bash
 docker -v
@@ -78,7 +102,23 @@ docker compose version
 ```bash
 sudo systemctl enable docker
 ```
-
+# 3 安装3x-ui
+克隆仓库
+```bash
+git clone https://github.com/MHSanaei/3x-ui.git
+cd 3x-ui
+```
+运行服务
+```bash
+docker compose up -d
+```
+之前已安装，需要更新
+```bash
+ cd 3x-ui
+ docker compose down
+ docker compose pull 3x-ui
+ docker compose up -d
+```
 
 。">
 <meta property="og:type" content="article">
@@ -158,16 +198,29 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <div class="highlight highlight-source-shell"><pre class="notranslate">apt install sudo curl wget nano</pre></div>
 <h2>1.3 修改SSH端口</h2>
 <p>将默认的22端口修改为34520</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">sudo sed -i <span class="pl-s"><span class="pl-pds">'</span>s/^#\?Port 22.*/Port 55520/g<span class="pl-pds">'</span></span> /etc/ssh/sshd_config</pre></div>
+<div class="highlight highlight-source-shell"><pre class="notranslate">sudo sed -i <span class="pl-s"><span class="pl-pds">'</span>s/^#\?Port 22.*/Port 34520/g<span class="pl-pds">'</span></span> /etc/ssh/sshd_config</pre></div>
 <p>重启sshd服务</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">sudo systemctl restart sshd</pre></div>
 <h1>2 安装Docker</h1>
 <div class="highlight highlight-source-shell"><pre class="notranslate">wget -qO- get.docker.com <span class="pl-k">|</span> bash</pre></div>
+<p>或者</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">bash <span class="pl-s"><span class="pl-pds">&lt;(</span>curl -sSL https://get.docker.com<span class="pl-pds">)</span></span></pre></div>
 <p>查看Docker、Docker Compose版本</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">docker -v
 docker compose version</pre></div>
 <p>开机自动启动</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">sudo systemctl <span class="pl-c1">enable</span> docker</pre></div></div>
+<div class="highlight highlight-source-shell"><pre class="notranslate">sudo systemctl <span class="pl-c1">enable</span> docker</pre></div>
+<h1>3 安装3x-ui</h1>
+<p>克隆仓库</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">git clone https://github.com/MHSanaei/3x-ui.git
+<span class="pl-c1">cd</span> 3x-ui</pre></div>
+<p>运行服务</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">docker compose up -d</pre></div>
+<p>之前已安装，需要更新</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate"> <span class="pl-c1">cd</span> 3x-ui
+ docker compose down
+ docker compose pull 3x-ui
+ docker compose up -d</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">转载请注明出处</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
