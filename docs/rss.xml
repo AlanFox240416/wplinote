@@ -1,5 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>wpli Note</title><link>http://note.774588.xyz</link><description>当生活的细节在记忆中轻轻划过，就如同细水长流，悄无声息地铭刻在心间。</description><copyright>wpli Note</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/167155570?s=400&amp;u=64c8b9d7116d3df20cfa190ac7e6c64ff65f37b4&amp;v=4</url><title>avatar</title><link>http://note.774588.xyz</link></image><lastBuildDate>Fri, 28 Mar 2025 13:46:22 +0000</lastBuildDate><managingEditor>wpli Note</managingEditor><ttl>60</ttl><webMaster>wpli Note</webMaster><item><title>Hysteria2节点搭建教程</title><link>http://note.774588.xyz/post/14.html</link><description># 1、安装hy2
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>wpli Note</title><link>http://note.774588.xyz</link><description>当生活的细节在记忆中轻轻划过，就如同细水长流，悄无声息地铭刻在心间。</description><copyright>wpli Note</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/167155570?s=400&amp;u=64c8b9d7116d3df20cfa190ac7e6c64ff65f37b4&amp;v=4</url><title>avatar</title><link>http://note.774588.xyz</link></image><lastBuildDate>Fri, 04 Apr 2025 12:46:09 +0000</lastBuildDate><managingEditor>wpli Note</managingEditor><ttl>60</ttl><webMaster>wpli Note</webMaster><item><title>Docker部署3x-ui（含云服务器基础设置）</title><link>http://note.774588.xyz/post/15.html</link><description># 1 基础设置
+## 1.1 更新软件库
+```bash
+apt update -y &amp;&amp; apt upgrade -y
+```
+## 1.2  更新、安装必备软件
+```bash
+apt install sudo curl wget nano
+```
+## 1.3 修改SSH端口
+将默认的22端口修改为34520
+```bash
+sudo sed -i 's/^#\?Port 22.*/Port 55520/g' /etc/ssh/sshd_config
+```
+重启sshd服务
+```bash
+sudo systemctl restart sshd
+```
+
+# 2 安装Docker
+```bash
+wget -qO- get.docker.com | bash
+```
+查看Docker、Docker Compose版本
+```bash
+docker -v
+docker compose version
+```
+开机自动启动
+```bash
+sudo systemctl enable docker
+```
+
+
+。</description><guid isPermaLink="true">http://note.774588.xyz/post/15.html</guid><pubDate>Fri, 04 Apr 2025 12:45:39 +0000</pubDate></item><item><title>Hysteria2节点搭建教程</title><link>http://note.774588.xyz/post/14.html</link><description># 1、安装hy2
 ```shell
 bash &lt;(curl -fsSL https://get.hy2.sh/)
 ``` 
