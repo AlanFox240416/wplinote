@@ -12,7 +12,7 @@
     </script>
 <meta name="description" content="# 注意事项
 
-（1）docker安装3xui，官方配置文件docker-compose.yml默认使用的是**host网络**
+- docker安装3xui，官方配置文件docker-compose.yml默认使用的是**host网络**
 
   <details><summary>官方配置文件docker-compose.yml</summary>
   <p>
@@ -22,7 +22,7 @@
   </p>
   </details> 
 
-（2）docker安装3xui，默认面板设置如下：
+- docker安装3xui，默认面板设置如下：
 
   <details><summary>面板初始用户名、密码、端口</summary>
   <p>
@@ -94,7 +94,7 @@ docker compose up -d
 <meta property="og:title" content="Docker部署3x-ui（含云服务器基础设置）">
 <meta property="og:description" content="# 注意事项
 
-（1）docker安装3xui，官方配置文件docker-compose.yml默认使用的是**host网络**
+- docker安装3xui，官方配置文件docker-compose.yml默认使用的是**host网络**
 
   <details><summary>官方配置文件docker-compose.yml</summary>
   <p>
@@ -104,7 +104,7 @@ docker compose up -d
   </p>
   </details> 
 
-（2）docker安装3xui，默认面板设置如下：
+- docker安装3xui，默认面板设置如下：
 
   <details><summary>面板初始用户名、密码、端口</summary>
   <p>
@@ -244,18 +244,24 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>注意事项</h1>
-<p>（1）docker安装3xui，官方配置文件docker-compose.yml默认使用的是<strong>host网络</strong></p>
-  <details><summary>官方配置文件docker-compose.yml</summary>
-  <p>
+<ul>
+<li>
+<p>docker安装3xui，官方配置文件docker-compose.yml默认使用的是<strong>host网络</strong></p>
+<details><summary>官方配置文件docker-compose.yml</summary>
+<p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/d364b037-7a31-4442-9da5-b49209467438"><img src="https://github.com/user-attachments/assets/d364b037-7a31-4442-9da5-b49209467438" alt="Image" style="max-width: 100%;"></a></p>
-  <p></p>
-  </details> 
-<p>（2）docker安装3xui，默认面板设置如下：</p>
-  <details><summary>面板初始用户名、密码、端口</summary>
-  <p>
+<p></p>
+</details> 
+</li>
+<li>
+<p>docker安装3xui，默认面板设置如下：</p>
+<details><summary>面板初始用户名、密码、端口</summary>
+<p>
 </p><p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/040ff2d8-2432-40b8-b6f7-46a0c1fc91f4"><img src="https://github.com/user-attachments/assets/040ff2d8-2432-40b8-b6f7-46a0c1fc91f4" alt="Image" style="max-width: 100%;"></a></p>
-  <p></p>
-  </details> 
+<p></p>
+</details> 
+</li>
+</ul>
 <p>（3）进入容器</p>
 <div class="highlight highlight-source-shell"><pre class="notranslate">docker <span class="pl-c1">exec</span> -it 容器名称（或ID） bash</pre></div>
 <h1>1 基础设置</h1>

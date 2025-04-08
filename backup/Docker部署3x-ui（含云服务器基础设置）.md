@@ -1,6 +1,6 @@
 # 注意事项
 
-（1）docker安装3xui，官方配置文件docker-compose.yml默认使用的是**host网络**
+- docker安装3xui，官方配置文件docker-compose.yml默认使用的是**host网络**
 
   <details><summary>官方配置文件docker-compose.yml</summary>
   <p>
@@ -10,7 +10,7 @@
   </p>
   </details> 
 
-（2）docker安装3xui，默认面板设置如下：
+- docker安装3xui，默认面板设置如下：
 
   <details><summary>面板初始用户名、密码、端口</summary>
   <p>
