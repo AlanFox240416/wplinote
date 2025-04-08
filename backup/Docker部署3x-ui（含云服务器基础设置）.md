@@ -2,23 +2,23 @@
 
 （1）docker安装3xui，官方配置文件docker-compose.yml默认使用的是**host网络**
 
-<details><summary>官方配置文件docker-compose.yml</summary>
-<p>
-
-![Image](https://github.com/user-attachments/assets/d364b037-7a31-4442-9da5-b49209467438)
-
-</p>
-</details> 
+    <details><summary>官方配置文件docker-compose.yml</summary>
+    <p>
+    
+    ![Image](https://github.com/user-attachments/assets/d364b037-7a31-4442-9da5-b49209467438)
+    
+    </p>
+    </details> 
 
 （2）docker安装3xui，默认面板设置如下：
 
-<details><summary>面板初始用户名、密码、端口</summary>
-<p>
-
-![Image](https://github.com/user-attachments/assets/040ff2d8-2432-40b8-b6f7-46a0c1fc91f4)
-
-</p>
-</details> 
+    <details><summary>面板初始用户名、密码、端口</summary>
+    <p>
+    
+    ![Image](https://github.com/user-attachments/assets/040ff2d8-2432-40b8-b6f7-46a0c1fc91f4)
+    
+    </p>
+    </details> 
 
 （3）进入容器
 ```bash
