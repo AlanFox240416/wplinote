@@ -20,7 +20,8 @@
   </p>
   </details> 
 
-（3）进入容器
+- 进入容器的命令
+
 ```bash
 docker exec -it 容器名称（或ID） bash
 ```

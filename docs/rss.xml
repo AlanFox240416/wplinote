@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>wpli Note</title><link>http://note.774588.xyz</link><description>当生活的细节在记忆中轻轻划过，就如同细水长流，悄无声息地铭刻在心间。</description><copyright>wpli Note</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/167155570?s=400&amp;u=64c8b9d7116d3df20cfa190ac7e6c64ff65f37b4&amp;v=4</url><title>avatar</title><link>http://note.774588.xyz</link></image><lastBuildDate>Tue, 08 Apr 2025 11:45:54 +0000</lastBuildDate><managingEditor>wpli Note</managingEditor><ttl>60</ttl><webMaster>wpli Note</webMaster><item><title>Docker部署3x-ui（含云服务器基础设置）</title><link>http://note.774588.xyz/post/15.html</link><description># 注意事项
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>wpli Note</title><link>http://note.774588.xyz</link><description>当生活的细节在记忆中轻轻划过，就如同细水长流，悄无声息地铭刻在心间。</description><copyright>wpli Note</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/167155570?s=400&amp;u=64c8b9d7116d3df20cfa190ac7e6c64ff65f37b4&amp;v=4</url><title>avatar</title><link>http://note.774588.xyz</link></image><lastBuildDate>Tue, 08 Apr 2025 11:46:34 +0000</lastBuildDate><managingEditor>wpli Note</managingEditor><ttl>60</ttl><webMaster>wpli Note</webMaster><item><title>Docker部署3x-ui（含云服务器基础设置）</title><link>http://note.774588.xyz/post/15.html</link><description># 注意事项
 
 - docker安装3xui，官方配置文件docker-compose.yml默认使用的是**host网络**
 
@@ -21,7 +21,8 @@
   &lt;/p&gt;
   &lt;/details&gt; 
 
-（3）进入容器
+- 进入容器的命令
+
 ```bash
 docker exec -it 容器名称（或ID） bash
 ```
